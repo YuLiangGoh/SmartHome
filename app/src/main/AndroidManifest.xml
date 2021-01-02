@@ -9,7 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartHome">
-        <activity android:name=".LaundryRoom"></activity>
+        <activity android:name=".StoreRoomSecondary"></activity>
+        <activity android:name=".StoreRoomPrimary" />
+        <activity android:name=".ToiletSecondary" />
+        <activity android:name=".ToiletPrimary" />
+        <activity android:name=".BedroomSecondary" />
+        <activity android:name=".BedroomPrimary" />
+        <activity android:name=".Balcony" />
+        <activity android:name=".LaundryRoom" />
         <activity android:name=".DiningRoom" />
         <activity android:name=".Kitchen" />
         <activity android:name=".LivingRoom" />
