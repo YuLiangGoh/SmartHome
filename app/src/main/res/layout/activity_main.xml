@@ -182,6 +182,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Kitchen"
+                    android:textColor="@color/grey"
                     android:layout_marginEnd="16dp"/>
 
                 <TextView
@@ -189,6 +190,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Dinning Room"
+                    android:textColor="@color/grey"
                     android:layout_marginEnd="16dp"/>
 
                 <TextView
@@ -196,6 +198,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Laundry Room"
+                    android:textColor="@color/grey"
                     android:layout_marginEnd="16dp"/>
 
                 <TextView
@@ -203,6 +206,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Balcony"
+                    android:textColor="@color/grey"
                     android:layout_marginEnd="16dp"/>
 
                 <TextView
@@ -210,6 +214,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Bedroom Primary"
+                    android:textColor="@color/grey"
                     android:layout_marginEnd="16dp"/>
 
                 <TextView
@@ -217,6 +222,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Bedroom Secondary"
+                    android:textColor="@color/grey"
                     android:layout_marginEnd="16dp"/>
 
                 <TextView
@@ -224,6 +230,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Toilet Primary"
+                    android:textColor="@color/grey"
                     android:layout_marginEnd="16dp"/>
 
                 <TextView
@@ -231,6 +238,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Toilet Secondary"
+                    android:textColor="@color/grey"
                     android:layout_marginEnd="16dp"/>
 
                 <TextView
@@ -238,6 +246,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Store Room Primary"
+                    android:textColor="@color/grey"
                     android:layout_marginEnd="16dp"/>
 
                 <TextView
@@ -245,6 +254,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Store Room Secondary"
+                    android:textColor="@color/grey"
                     android:layout_marginEnd="16dp"/>
 
             </LinearLayout>

@@ -51,6 +51,8 @@ public class MainActivity extends FragmentActivity {
         living_room.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                clearTextStyle();
+                living_room.setTextColor(getResources().getColor(R.color.primaryColor, getApplicationContext().getTheme()));
                 viewPager.setCurrentItem(0,true);
             }
         });
@@ -58,6 +60,8 @@ public class MainActivity extends FragmentActivity {
         kitchen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                clearTextStyle();
+                kitchen.setTextColor(getResources().getColor(R.color.primaryColor, getApplicationContext().getTheme()));
                 viewPager.setCurrentItem(1,true);
             }
         });
@@ -84,5 +88,19 @@ public class MainActivity extends FragmentActivity {
         public int getCount() {
             return NUM_PAGES;
         }
+    }
+
+    private void clearTextStyle(){
+        living_room.setTextColor(getResources().getColor(R.color.grey, this.getTheme()));
+        kitchen.setTextColor(getResources().getColor(R.color.grey, this.getTheme()));
+        dining_room.setTextColor(getResources().getColor(R.color.grey, this.getTheme()));
+        laundry_room.setTextColor(getResources().getColor(R.color.grey, this.getTheme()));
+        balcony.setTextColor(getResources().getColor(R.color.grey, this.getTheme()));
+        bedroom_primary.setTextColor(getResources().getColor(R.color.grey, this.getTheme()));
+        bedroom_secondary.setTextColor(getResources().getColor(R.color.grey, this.getTheme()));
+        toilet_primary.setTextColor(getResources().getColor(R.color.grey, this.getTheme()));
+        toilet_secondary.setTextColor(getResources().getColor(R.color.grey, this.getTheme()));
+        store_room_primary.setTextColor(getResources().getColor(R.color.grey, this.getTheme()));
+        store_room_secondary.setTextColor(getResources().getColor(R.color.grey, this.getTheme()));
     }
 }
