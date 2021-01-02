@@ -10,12 +10,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class Living_Room extends Fragment {
+public class LaundryRoom extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.activity_living__room, container, false);
+        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.activity_laundry_room, container, false);
         return  rootView;
     }
 }

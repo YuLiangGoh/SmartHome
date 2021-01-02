@@ -9,8 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartHome">
-        <activity android:name=".Kitchen"></activity>
-        <activity android:name=".Living_Room" />
+        <activity android:name=".LaundryRoom"></activity>
+        <activity android:name=".DiningRoom" />
+        <activity android:name=".Kitchen" />
+        <activity android:name=".LivingRoom" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
