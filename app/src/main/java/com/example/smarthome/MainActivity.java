@@ -19,7 +19,15 @@ public class MainActivity extends AppCompatActivity {
         name = findViewById(R.id.main_username);
         living_room = findViewById(R.id.main_living_room);
         kitchen = findViewById(R.id.main_dining_room);
-        
+        dining_room = findViewById(R.id.main_dining_room);
+        laundry_room = findViewById(R.id.main_laundry_room);
+        balcony = findViewById(R.id.main_balcony);
+        bedroom_primary = findViewById(R.id.main_bedroom_primary);
+        bedroom_secondary = findViewById(R.id.main_bedroom_secondary);
+        toilet_primary = findViewById(R.id.main_toilet_primary);
+        toilet_secondary = findViewById(R.id.main_toilet_secondary);
+        store_room_primary = findViewById(R.id.main_store_room_primary);
+        store_room_secondary = findViewById(R.id.main_store_room_secondary);
 
         //set Username
         name.setText("Thomas Oliver");
