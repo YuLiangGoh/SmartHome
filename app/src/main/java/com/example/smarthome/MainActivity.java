@@ -9,6 +9,7 @@ import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 public class MainActivity extends FragmentActivity {
@@ -28,7 +29,7 @@ public class MainActivity extends FragmentActivity {
         //Find ID
         name = findViewById(R.id.main_username);
         living_room = findViewById(R.id.main_living_room);
-        kitchen = findViewById(R.id.main_dining_room);
+        kitchen = findViewById(R.id.main_kitchen);
         dining_room = findViewById(R.id.main_dining_room);
         laundry_room = findViewById(R.id.main_laundry_room);
         balcony = findViewById(R.id.main_balcony);
@@ -46,6 +47,21 @@ public class MainActivity extends FragmentActivity {
         //Initiates View Pager
         pagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(pagerAdapter);
+
+        living_room.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewPager.setCurrentItem(0,true);
+            }
+        });
+
+        kitchen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewPager.setCurrentItem(1,true);
+            }
+        });
+
     }
 
     private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
@@ -55,6 +71,12 @@ public class MainActivity extends FragmentActivity {
 
         @Override
         public Fragment getItem(int position) {
+            if(position == 0){
+                return new Living_Room();
+            }
+            if(position == 1){
+                return new Kitchen();
+            }
             return new Living_Room();
         }
 
