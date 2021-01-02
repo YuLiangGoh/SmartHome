@@ -1,6 +1,5 @@
 package com.example.smarthome;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
@@ -113,11 +112,11 @@ public class MainActivity extends FragmentActivity {
         public Fragment getItem(int position) {
             switch (position){
                 case 0:
-                    return new Living_Room();
+                    return new LivingRoom();
                 case 1:
                     return new Kitchen();
                 default:
-                    return new Living_Room();
+                    return new LivingRoom();
             }
         }
 
