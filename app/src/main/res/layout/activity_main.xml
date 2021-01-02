@@ -150,10 +150,12 @@
         />
 
     <ScrollView
+        android:id="@+id/main_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <HorizontalScrollView
+            android:id="@+id/main_horizontal_scroll_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scrollbars="none"
@@ -161,6 +163,7 @@
             >
 
             <LinearLayout
+                android:id="@+id/main_item_linear_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
