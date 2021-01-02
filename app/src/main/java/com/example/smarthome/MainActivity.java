@@ -8,9 +8,11 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends FragmentActivity {
 
@@ -48,11 +50,44 @@ public class MainActivity extends FragmentActivity {
         pagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(pagerAdapter);
 
+        //set view pager on page change listener
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                Toast.makeText(MainActivity.this, "Selected page position: " + position, Toast.LENGTH_SHORT).show();
+                switch (position){
+                    case 0:
+                        clearTextStyle();
+                        living_room.setTextColor(getResources().getColor(R.color.primaryColor, getApplicationContext().getTheme()));
+                        living_room.setTypeface(Typeface.DEFAULT_BOLD);
+                        break;
+                    case 1:
+                        clearTextStyle();
+                        kitchen.setTextColor(getResources().getColor(R.color.primaryColor, getApplicationContext().getTheme()));
+                        kitchen.setTypeface(Typeface.DEFAULT_BOLD);
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
         living_room.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 clearTextStyle();
                 living_room.setTextColor(getResources().getColor(R.color.primaryColor, getApplicationContext().getTheme()));
+                living_room.setTypeface(Typeface.DEFAULT_BOLD);
                 viewPager.setCurrentItem(0,true);
             }
         });
@@ -62,6 +97,7 @@ public class MainActivity extends FragmentActivity {
             public void onClick(View v) {
                 clearTextStyle();
                 kitchen.setTextColor(getResources().getColor(R.color.primaryColor, getApplicationContext().getTheme()));
+                kitchen.setTypeface(Typeface.DEFAULT_BOLD);
                 viewPager.setCurrentItem(1,true);
             }
         });
@@ -75,13 +111,14 @@ public class MainActivity extends FragmentActivity {
 
         @Override
         public Fragment getItem(int position) {
-            if(position == 0){
-                return new Living_Room();
+            switch (position){
+                case 0:
+                    return new Living_Room();
+                case 1:
+                    return new Kitchen();
+                default:
+                    return new Living_Room();
             }
-            if(position == 1){
-                return new Kitchen();
-            }
-            return new Living_Room();
         }
 
         @Override
@@ -92,15 +129,26 @@ public class MainActivity extends FragmentActivity {
 
     private void clearTextStyle(){
         living_room.setTextColor(getResources().getColor(R.color.grey, this.getTheme()));
+        living_room.setTypeface(Typeface.DEFAULT);
         kitchen.setTextColor(getResources().getColor(R.color.grey, this.getTheme()));
+        kitchen.setTypeface(Typeface.DEFAULT);
         dining_room.setTextColor(getResources().getColor(R.color.grey, this.getTheme()));
+        dining_room.setTypeface(Typeface.DEFAULT);
         laundry_room.setTextColor(getResources().getColor(R.color.grey, this.getTheme()));
+        laundry_room.setTypeface(Typeface.DEFAULT);
         balcony.setTextColor(getResources().getColor(R.color.grey, this.getTheme()));
+        balcony.setTypeface(Typeface.DEFAULT);
         bedroom_primary.setTextColor(getResources().getColor(R.color.grey, this.getTheme()));
+        bedroom_primary.setTypeface(Typeface.DEFAULT);
         bedroom_secondary.setTextColor(getResources().getColor(R.color.grey, this.getTheme()));
+        bedroom_secondary.setTypeface(Typeface.DEFAULT);
         toilet_primary.setTextColor(getResources().getColor(R.color.grey, this.getTheme()));
+        toilet_primary.setTypeface(Typeface.DEFAULT);
         toilet_secondary.setTextColor(getResources().getColor(R.color.grey, this.getTheme()));
+        toilet_secondary.setTypeface(Typeface.DEFAULT);
         store_room_primary.setTextColor(getResources().getColor(R.color.grey, this.getTheme()));
+        store_room_primary.setTypeface(Typeface.DEFAULT);
         store_room_secondary.setTextColor(getResources().getColor(R.color.grey, this.getTheme()));
+        store_room_secondary.setTypeface(Typeface.DEFAULT);
     }
 }
