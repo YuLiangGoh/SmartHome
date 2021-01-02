@@ -1,14 +1,24 @@
 package com.example.smarthome;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends FragmentActivity {
 
     private TextView name;
     private TextView living_room, kitchen, dining_room, laundry_room, balcony, bedroom_primary, bedroom_secondary, toilet_primary, toilet_secondary, store_room_primary, store_room_secondary;
+    private ViewPager viewPager;
+    private PagerAdapter pagerAdapter;
+
+    private int NUM_PAGES = 11;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +38,29 @@ public class MainActivity extends AppCompatActivity {
         toilet_secondary = findViewById(R.id.main_toilet_secondary);
         store_room_primary = findViewById(R.id.main_store_room_primary);
         store_room_secondary = findViewById(R.id.main_store_room_secondary);
+        viewPager = findViewById(R.id.main_view_pager);
 
         //set Username
         name.setText("Thomas Oliver");
+
+        //Initiates View Pager
+        pagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(pagerAdapter);
+    }
+
+    private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
+        public ScreenSlidePagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return new Living_Room();
+        }
+
+        @Override
+        public int getCount() {
+            return NUM_PAGES;
+        }
     }
 }

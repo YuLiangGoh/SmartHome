@@ -173,6 +173,8 @@
                     android:text="Living Room"
                     android:layout_marginStart="12dp"
                     android:layout_marginEnd="16dp"
+                    android:textColor="@color/primaryColor"
+                    android:textStyle="bold"
                     />
 
                 <TextView
@@ -250,6 +252,11 @@
         </HorizontalScrollView>
 
     </ScrollView>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/main_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 
 </LinearLayout>
