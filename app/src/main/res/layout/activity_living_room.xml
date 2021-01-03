@@ -14,7 +14,7 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="150dp"
-            android:layout_height="250dp"
+            android:layout_height="300dp"
             android:elevation="2dp"
             app:cardCornerRadius="8dp"
             android:layout_marginStart="20dp">
@@ -66,14 +66,26 @@
                     android:orientation="vertical"
                     android:padding="10dp">
 
-                    <TextView
-                        android:id="@+id/temperature"
+                    <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center"
-                        android:text="16\u2103"
-                        android:textSize="24dp"
-                        android:textStyle="bold"/>
+                        android:layout_height="wrap_content"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:background="@drawable/thermometer"/>
+
+                        <TextView
+                            android:id="@+id/temperature"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:text="16\u2103"
+                            android:textSize="24dp"
+                            android:textStyle="bold"/>
+
+                    </LinearLayout>
 
                     <SeekBar
                         android:id="@+id/temperatureBar"
@@ -82,8 +94,27 @@
                         android:max="36"
                         android:min="16"/>
 
-                </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="swing"
+                            android:textStyle="bold"/>
+
+                        <ToggleButton
+                            android:layout_marginLeft="30dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            />
+
+                    </LinearLayout>
+
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -110,7 +141,7 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="28dp"
+                        android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_marginStart="20dp"
                         android:layout_centerVertical="true"
