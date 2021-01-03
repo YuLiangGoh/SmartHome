@@ -1,275 +1,298 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:orientation="vertical"
-    android:background="@color/secondaryColor"
-    android:padding="18dp">
-
-    <ImageView
-        android:layout_width="28dp"
-        android:layout_height="28dp"
-        android:background="@drawable/menu_icon"
-        android:backgroundTint="@color/primaryColor"
-        android:layout_marginTop="8dp"
-        />
+    android:background="@color/secondaryColor">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="260dp"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@drawable/homepage_background_icon">
+        android:padding="18dp">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Welcome Home,"
-            android:textColor="@color/primaryColor"
-            android:textSize="18sp"
-            android:layout_marginTop="18dp"
-            />
-
-        <TextView
-            android:id="@+id/main_username"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Name"
-            android:textColor="@color/primaryColor"
-            android:textStyle="bold"
-            android:textSize="24sp"
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:background="@drawable/menu_icon"
+            android:backgroundTint="@color/primaryColor"
             android:layout_marginTop="8dp"
             />
 
-    </LinearLayout>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="10dp"
-        android:elevation="1dp">
-
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
+            android:layout_height="260dp"
+            android:orientation="vertical"
+            android:background="@drawable/homepage_background_icon">
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="70dp"
-                android:orientation="horizontal"
-                android:padding="12dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Welcome Home,"
+                android:textColor="@color/primaryColor"
+                android:textSize="18sp"
+                android:layout_marginTop="18dp"
+                />
 
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:background="@drawable/power_icon"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="14dp"/>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:gravity="center">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Today"
-                        android:textSize="12sp"
-                        />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="26.4KwH"
-                        android:textColor="@color/primaryColor"
-                        android:textStyle="bold"/>
-
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="70dp"
-                android:orientation="horizontal"
-                android:padding="12dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                >
-
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:background="@drawable/power_icon"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="14dp"/>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:gravity="center">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="This Month"
-                        android:textSize="12sp"
-                        />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="726.48KwH"
-                        android:textColor="@color/primaryColor"
-                        android:textStyle="bold"/>
-
-                </LinearLayout>
-
-            </LinearLayout>
+            <TextView
+                android:id="@+id/main_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:textColor="@color/primaryColor"
+                android:textStyle="bold"
+                android:textSize="24sp"
+                android:layout_marginTop="8dp"
+                />
 
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="16dp"
-        android:background="@android:color/darker_gray"
-        />
-
-    <ScrollView
-        android:id="@+id/main_scroll_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <HorizontalScrollView
-            android:id="@+id/main_horizontal_scroll_view"
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:scrollbars="none"
-            android:overScrollMode="never"
-            >
+            app:cardCornerRadius="10dp"
+            android:elevation="1dp">
 
             <LinearLayout
-                android:id="@+id/main_item_linear_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="12dp">
+                >
 
-                <TextView
-                    android:id="@+id/main_living_room"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Living Room"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginEnd="16dp"
-                    android:textColor="@color/primaryColor"
-                    android:textStyle="bold"
-                    />
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:orientation="horizontal"
+                    android:padding="12dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    >
 
-                <TextView
-                    android:id="@+id/main_kitchen"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Kitchen"
-                    android:textColor="@color/grey"
-                    android:layout_marginEnd="16dp"/>
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/power_icon"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="14dp"/>
 
-                <TextView
-                    android:id="@+id/main_dining_room"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Dinning Room"
-                    android:textColor="@color/grey"
-                    android:layout_marginEnd="16dp"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center">
 
-                <TextView
-                    android:id="@+id/main_laundry_room"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Laundry Room"
-                    android:textColor="@color/grey"
-                    android:layout_marginEnd="16dp"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Today"
+                            android:textSize="12sp"
+                            />
 
-                <TextView
-                    android:id="@+id/main_balcony"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Balcony"
-                    android:textColor="@color/grey"
-                    android:layout_marginEnd="16dp"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="26.4KwH"
+                            android:textColor="@color/primaryColor"
+                            android:textStyle="bold"/>
 
-                <TextView
-                    android:id="@+id/main_bedroom_primary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Bedroom Primary"
-                    android:textColor="@color/grey"
-                    android:layout_marginEnd="16dp"/>
 
-                <TextView
-                    android:id="@+id/main_bedroom_secondary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Bedroom Secondary"
-                    android:textColor="@color/grey"
-                    android:layout_marginEnd="16dp"/>
+                    </LinearLayout>
 
-                <TextView
-                    android:id="@+id/main_toilet_primary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Toilet Primary"
-                    android:textColor="@color/grey"
-                    android:layout_marginEnd="16dp"/>
+                </LinearLayout>
 
-                <TextView
-                    android:id="@+id/main_toilet_secondary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Toilet Secondary"
-                    android:textColor="@color/grey"
-                    android:layout_marginEnd="16dp"/>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:orientation="horizontal"
+                    android:padding="12dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    >
 
-                <TextView
-                    android:id="@+id/main_store_room_primary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Store Room Primary"
-                    android:textColor="@color/grey"
-                    android:layout_marginEnd="16dp"/>
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/power_icon"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="14dp"/>
 
-                <TextView
-                    android:id="@+id/main_store_room_secondary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Store Room Secondary"
-                    android:textColor="@color/grey"
-                    android:layout_marginEnd="16dp"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="This Month"
+                            android:textSize="12sp"
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="726.48KwH"
+                            android:textColor="@color/primaryColor"
+                            android:textStyle="bold"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
 
             </LinearLayout>
 
-        </HorizontalScrollView>
+        </androidx.cardview.widget.CardView>
 
-    </ScrollView>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:background="@android:color/darker_gray"
+            />
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/main_view_pager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        <ScrollView
+            android:id="@+id/main_scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <HorizontalScrollView
+                android:id="@+id/main_horizontal_scroll_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none"
+                android:overScrollMode="never"
+                >
+
+                <LinearLayout
+                    android:id="@+id/main_item_linear_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="12dp">
 
 
-</LinearLayout>
+                    <TextView
+                        android:id="@+id/main_living_room"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Living Room"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="16dp"
+                        android:textColor="@color/primaryColor"
+                        android:textStyle="bold"
+                        />
+
+                    <TextView
+                        android:id="@+id/main_kitchen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kitchen"
+                        android:textColor="@color/grey"
+                        android:layout_marginEnd="16dp"/>
+
+                    <TextView
+                        android:id="@+id/main_dining_room"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dinning Room"
+                        android:textColor="@color/grey"
+                        android:layout_marginEnd="16dp"/>
+
+                    <TextView
+                        android:id="@+id/main_laundry_room"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Laundry Room"
+                        android:textColor="@color/grey"
+                        android:layout_marginEnd="16dp"/>
+
+                    <TextView
+                        android:id="@+id/main_balcony"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Balcony"
+                        android:textColor="@color/grey"
+                        android:layout_marginEnd="16dp"/>
+
+                    <TextView
+                        android:id="@+id/main_bedroom_primary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bedroom Primary"
+                        android:textColor="@color/grey"
+                        android:layout_marginEnd="16dp"/>
+
+                    <TextView
+                        android:id="@+id/main_bedroom_secondary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bedroom Secondary"
+                        android:textColor="@color/grey"
+                        android:layout_marginEnd="16dp"/>
+
+                    <TextView
+                        android:id="@+id/main_toilet_primary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Toilet Primary"
+                        android:textColor="@color/grey"
+                        android:layout_marginEnd="16dp"/>
+
+                    <TextView
+                        android:id="@+id/main_toilet_secondary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Toilet Secondary"
+                        android:textColor="@color/grey"
+                        android:layout_marginEnd="16dp"/>
+
+                    <TextView
+                        android:id="@+id/main_store_room_primary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Store Room Primary"
+                        android:textColor="@color/grey"
+                        android:layout_marginEnd="16dp"/>
+
+                    <TextView
+                        android:id="@+id/main_store_room_secondary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Store Room Secondary"
+                        android:textColor="@color/grey"
+                        android:layout_marginEnd="16dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="                                                    "
+                        android:textColor="@color/grey"
+                        android:layout_marginEnd="16dp"/>
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+        </ScrollView>
+
+        <View
+            android:id="@+id/main_view"
+            android:layout_width="90dp"
+            android:layout_height="4dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/primaryColor"
+            />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/main_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:padding="4dp"
+            android:layout_marginTop="12dp"/>
+
+    </LinearLayout>
+
+</ScrollView>

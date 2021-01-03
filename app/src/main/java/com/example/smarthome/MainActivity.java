@@ -9,6 +9,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
@@ -25,8 +26,10 @@ public class MainActivity extends FragmentActivity {
     private LinearLayout linearLayout;
     private ViewPager viewPager;
     private PagerAdapter pagerAdapter;
+    private View view;
 
     private int NUM_PAGES = 11;
+    private String TAG = MainActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +54,7 @@ public class MainActivity extends FragmentActivity {
         horizontalScrollView.setSmoothScrollingEnabled(true);
         linearLayout = findViewById(R.id.main_item_linear_layout);
         viewPager = findViewById(R.id.main_view_pager);
+        view = findViewById(R.id.main_view);
 
         //set Username
         name.setText("Thomas Oliver");
@@ -74,56 +78,78 @@ public class MainActivity extends FragmentActivity {
                         clearTextStyle();
                         living_room.setTextColor(getResources().getColor(R.color.primaryColor, getApplicationContext().getTheme()));
                         living_room.setTypeface(Typeface.DEFAULT_BOLD);
+                        horizontalScrollView.smoothScrollTo((int) linearLayout.getChildAt(0).getX(),0);
+                        view.getLayoutParams().width = linearLayout.getChildAt(0).getWidth();
                         break;
                     case 1:
                         clearTextStyle();
                         kitchen.setTextColor(getResources().getColor(R.color.primaryColor, getApplicationContext().getTheme()));
                         kitchen.setTypeface(Typeface.DEFAULT_BOLD);
+                        horizontalScrollView.smoothScrollTo((int) linearLayout.getChildAt(1).getX(),0);
+                        view.getLayoutParams().width = linearLayout.getChildAt(1).getWidth();
                         break;
                     case 2:
                         clearTextStyle();
                         dining_room.setTextColor(getResources().getColor(R.color.primaryColor, getApplicationContext().getTheme()));
                         dining_room.setTypeface(Typeface.DEFAULT_BOLD);
+                        horizontalScrollView.smoothScrollTo((int) linearLayout.getChildAt(2).getX(),0);
+                        view.getLayoutParams().width = linearLayout.getChildAt(2).getWidth();
                         break;
                     case 3:
                         clearTextStyle();
                         laundry_room.setTextColor(getResources().getColor(R.color.primaryColor, getApplicationContext().getTheme()));
                         laundry_room.setTypeface(Typeface.DEFAULT_BOLD);
+                        horizontalScrollView.smoothScrollTo((int) linearLayout.getChildAt(3).getX(),0);
+                        view.getLayoutParams().width = linearLayout.getChildAt(3).getWidth();
                         break;
                     case 4:
                         clearTextStyle();
                         balcony.setTextColor(getResources().getColor(R.color.primaryColor, getApplicationContext().getTheme()));
                         balcony.setTypeface(Typeface.DEFAULT_BOLD);
+                        horizontalScrollView.smoothScrollTo((int) linearLayout.getChildAt(4).getX(),0);
+                        view.getLayoutParams().width = linearLayout.getChildAt(4).getWidth();
                         break;
                     case 5:
                         clearTextStyle();
                         bedroom_primary.setTextColor(getResources().getColor(R.color.primaryColor, getApplicationContext().getTheme()));
                         bedroom_primary.setTypeface(Typeface.DEFAULT_BOLD);
+                        horizontalScrollView.smoothScrollTo((int) linearLayout.getChildAt(5).getX(),0);
+                        view.getLayoutParams().width = linearLayout.getChildAt(5).getWidth();
                         break;
                     case 6:
                         clearTextStyle();
                         bedroom_secondary.setTextColor(getResources().getColor(R.color.primaryColor, getApplicationContext().getTheme()));
                         bedroom_secondary.setTypeface(Typeface.DEFAULT_BOLD);
+                        horizontalScrollView.smoothScrollTo((int) linearLayout.getChildAt(6).getX(),0);
+                        view.getLayoutParams().width = linearLayout.getChildAt(6).getWidth();
                         break;
                     case 7:
                         clearTextStyle();
                         toilet_primary.setTextColor(getResources().getColor(R.color.primaryColor, getApplicationContext().getTheme()));
                         toilet_primary.setTypeface(Typeface.DEFAULT_BOLD);
+                        horizontalScrollView.smoothScrollTo((int) linearLayout.getChildAt(7).getX(),0);
+                        view.getLayoutParams().width = linearLayout.getChildAt(7).getWidth();
                         break;
                     case 8:
                         clearTextStyle();
                         toilet_secondary.setTextColor(getResources().getColor(R.color.primaryColor, getApplicationContext().getTheme()));
                         toilet_secondary.setTypeface(Typeface.DEFAULT_BOLD);
+                        horizontalScrollView.smoothScrollTo((int) linearLayout.getChildAt(8).getX(),0);
+                        view.getLayoutParams().width = linearLayout.getChildAt(8).getWidth();
                         break;
                     case 9:
                         clearTextStyle();
                         store_room_primary.setTextColor(getResources().getColor(R.color.primaryColor, getApplicationContext().getTheme()));
                         store_room_primary.setTypeface(Typeface.DEFAULT_BOLD);
+                        horizontalScrollView.smoothScrollTo((int) linearLayout.getChildAt(9).getX(),0);
+                        view.getLayoutParams().width = linearLayout.getChildAt(9).getWidth();
                         break;
                     case 10:
                         clearTextStyle();
                         store_room_secondary.setTextColor(getResources().getColor(R.color.primaryColor, getApplicationContext().getTheme()));
                         store_room_secondary.setTypeface(Typeface.DEFAULT_BOLD);
+                        horizontalScrollView.smoothScrollTo((int) linearLayout.getChildAt(10).getX(),0);
+                        view.getLayoutParams().width = linearLayout.getChildAt(10).getWidth();
                         break;
                     default:
                         break;
@@ -257,38 +283,26 @@ public class MainActivity extends FragmentActivity {
         public Fragment getItem(int position) {
             switch (position){
                 case 0:
-                    horizontalScrollView.smoothScrollTo((int) linearLayout.getChildAt(0).getX(),0);
                     return new LivingRoom();
                 case 1:
-                    horizontalScrollView.smoothScrollTo((int) linearLayout.getChildAt(0).getX(),0);
                     return new Kitchen();
                 case 2:
-
-                    horizontalScrollView.smoothScrollTo((int) linearLayout.getChildAt(1).getX(),0);
                     return new DiningRoom();
                 case 3:
-                    horizontalScrollView.smoothScrollTo((int) linearLayout.getChildAt(2).getX(),0);
                     return new LaundryRoom();
                 case 4:
-                    horizontalScrollView.smoothScrollTo((int) linearLayout.getChildAt(3).getX(),0);
                     return new Balcony();
                 case 5:
-                    horizontalScrollView.smoothScrollTo((int) linearLayout.getChildAt(4).getX(),0);
                     return new BedroomPrimary();
                 case 6:
-                    horizontalScrollView.smoothScrollTo((int) linearLayout.getChildAt(5).getX(),0);
                     return new BedroomSecondary();
                 case 7:
-                    horizontalScrollView.smoothScrollTo((int) linearLayout.getChildAt(6).getX(),0);
                     return new ToiletPrimary();
                 case 8:
-                    horizontalScrollView.smoothScrollTo((int) linearLayout.getChildAt(7).getX(),0);
                     return new ToiletSecondary();
                 case 9:
-                    horizontalScrollView.smoothScrollTo((int) linearLayout.getChildAt(8).getX(),0);
                     return new StoreRoomPrimary();
                 case 10:
-                    horizontalScrollView.smoothScrollTo((int) linearLayout.getChildAt(10).getX(),0);
                     return new StoreRoomSecondary();
                 default:
                     return new LivingRoom();
