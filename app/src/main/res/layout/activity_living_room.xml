@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".LivingRoom"
     android:orientation="horizontal"
-    android:background="@color/secondaryColor">
+    android:background="@color/secondaryColor"
+    android:padding="1dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,14 +20,16 @@
             android:id="@+id/aircon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:elevation="2dp"
-            app:cardCornerRadius="8dp">
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="6dp">
+                android:padding="6dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -55,11 +58,15 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="Daikin Air Conditioner"
+                        android:textSize="14sp"
                         android:textColor="@color/primaryColor"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:textAlignment="center"
+                        android:layout_marginTop="12dp"
+                        />
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/outlinedButton"
@@ -72,7 +79,92 @@
                         app:iconSize="24dp"
                         app:iconTint="@color/primaryColor"
                         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_marginTop="12dp"
+                        app:rippleColor="@color/grey"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginEnd="4dp"
                         />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="16dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toStartOf="@+id/main_thermometer_icon"
+                            android:text="27 \u2103"
+                            android:textColor="@color/black"
+                            android:textSize="12sp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="10dp"/>
+
+                        <ImageView
+                            android:id="@+id/main_thermometer_icon"
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:background="@drawable/thermometer_icon"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="10dp"
+                            android:backgroundTint="@color/snowblue"
+                            />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toStartOf="@+id/main_swing_icon"
+                            android:text="Swing"
+                            android:textColor="@color/black"
+                            android:textSize="12sp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="10dp"/>
+
+                        <ImageView
+                            android:id="@+id/main_swing_icon"
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:background="@drawable/oscillation_icon"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="10dp"
+                            android:backgroundTint="@color/lightorange"
+                            />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toStartOf="@+id/main_timer_icon"
+                            android:text="Timer"
+                            android:textColor="@color/black"
+                            android:textSize="12sp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="10dp"/>
+
+                        <ImageView
+                            android:id="@+id/main_timer_icon"
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:background="@drawable/timer_icon"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="10dp"
+                            android:backgroundTint="@color/lightgreen"
+                            />
+                    </RelativeLayout>
 
                 </LinearLayout>
 
@@ -96,7 +188,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:elevation="2dp"
+                app:cardElevation="0dp"
                 app:cardCornerRadius="8dp"
                 android:id="@+id/light_card">
 
@@ -149,6 +241,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                app:cardElevation="0dp"
                 app:cardCornerRadius="8dp">
 
                 <LinearLayout

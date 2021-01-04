@@ -11,4 +11,7 @@
     <color name="primaryColor">#133568</color>
     <color name="secondaryColor">#e6eff4</color>
     <color name="buttonTintColor">#6C90C6</color>
+    <color name="snowblue">#93e7fb</color>
+    <color name="lightorange">#ffb347</color>
+    <color name="lightgreen">#54b948</color>
 </resources>
