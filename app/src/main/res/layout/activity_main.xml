@@ -1,457 +1,479 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:background="@color/secondaryColor"
-    android:overScrollMode="never">
+    android:fitsSystemWindows="true"
+    android:id="@+id/drawer_layout"
+    tools:openDrawer="start">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="18dp">
-
-        <ImageView
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:background="@drawable/menu_icon"
-            android:backgroundTint="@color/primaryColor"
-            android:layout_marginTop="8dp"
-            />
+        tools:context=".MainActivity"
+        android:background="@color/secondaryColor"
+        android:overScrollMode="never">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="260dp"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:background="@drawable/homepage_background_icon">
+            android:padding="18dp">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Welcome Home,"
-                android:textColor="@color/primaryColor"
-                android:textSize="18sp"
-                android:layout_marginTop="18dp"
-                />
-
-            <TextView
-                android:id="@+id/main_username"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Name"
-                android:textColor="@color/primaryColor"
-                android:textStyle="bold"
-                android:textSize="24sp"
+            <ImageView
+                android:id="@+id/main_menu"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:background="@drawable/menu_icon"
+                android:backgroundTint="@color/primaryColor"
                 android:layout_marginTop="8dp"
-                />
+                >
 
-        </LinearLayout>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="10dp"
-            android:elevation="1dp">
+            </ImageView>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
+                android:layout_height="260dp"
+                android:orientation="vertical"
+                android:background="@drawable/homepage_background_icon">
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="70dp"
-                    android:orientation="horizontal"
-                    android:padding="12dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Welcome Home,"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp"
+                    android:layout_marginTop="18dp"
+                    />
 
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:background="@drawable/power_icon"
-                        android:layout_gravity="center"
-                        android:layout_marginEnd="14dp"/>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:gravity="center">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Today"
-                            android:textSize="12sp"
-                            />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="26.4KwH"
-                            android:textColor="@color/primaryColor"
-                            android:textStyle="bold"/>
-
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="70dp"
-                    android:orientation="horizontal"
-                    android:padding="12dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    >
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:background="@drawable/power_icon"
-                        android:layout_gravity="center"
-                        android:layout_marginEnd="14dp"/>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:gravity="center">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="This Month"
-                            android:textSize="12sp"
-                            />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="726.48KwH"
-                            android:textColor="@color/primaryColor"
-                            android:textStyle="bold"/>
-
-                    </LinearLayout>
-
-                </LinearLayout>
+                <TextView
+                    android:id="@+id/main_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name"
+                    android:textColor="@color/primaryColor"
+                    android:textStyle="bold"
+                    android:textSize="24sp"
+                    android:layout_marginTop="8dp"
+                    />
 
             </LinearLayout>
 
-        </androidx.cardview.widget.CardView>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="16dp"
-            android:background="@android:color/darker_gray"
-            />
-
-        <ScrollView
-            android:id="@+id/main_scroll_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <HorizontalScrollView
-                android:id="@+id/main_horizontal_scroll_view"
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:scrollbars="none"
-                android:overScrollMode="never"
-                >
+                app:cardCornerRadius="10dp"
+                android:elevation="1dp">
 
                 <LinearLayout
-                    android:id="@+id/main_item_linear_layout"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="12dp">
+                    >
 
                     <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:layout_width="0dp"
+                        android:layout_height="70dp"
+                        android:orientation="horizontal"
+                        android:padding="12dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        >
 
-                        <TextView
-                            android:id="@+id/main_living_room"
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:background="@drawable/power_icon"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="14dp"/>
+
+                        <LinearLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Living Room"
-                            android:layout_marginEnd="16dp"
-                            android:textColor="@color/primaryColor"
-                            android:textStyle="bold"
-                            />
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center">
 
-                        <View
-                            android:id="@+id/main_living_room_view"
-                            android:layout_width="0dp"
-                            android:layout_height="4dp"
-                            android:layout_marginTop="8dp"
-                            android:background="@color/primaryColor"
-                            />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Today"
+                                android:textSize="12sp"
+                                />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="26.4KwH"
+                                android:textColor="@color/primaryColor"
+                                android:textStyle="bold"/>
+
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:layout_width="0dp"
+                        android:layout_height="70dp"
+                        android:orientation="horizontal"
+                        android:padding="12dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        >
 
-                        <TextView
-                            android:id="@+id/main_kitchen"
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:background="@drawable/power_icon"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="14dp"/>
+
+                        <LinearLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Kitchen"
-                            android:textColor="@color/grey"
-                            android:layout_marginEnd="16dp"/>
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center">
 
-                        <View
-                            android:id="@+id/main_kitchen_view"
-                            android:layout_width="0dp"
-                            android:layout_height="4dp"
-                            android:layout_marginTop="8dp"
-                            android:background="@color/primaryColor"
-                            />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="This Month"
+                                android:textSize="12sp"
+                                />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="726.48KwH"
+                                android:textColor="@color/primaryColor"
+                                android:textStyle="bold"/>
+
+                        </LinearLayout>
 
                     </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/main_dining_room"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Dinning Room"
-                            android:textColor="@color/grey"
-                            android:layout_marginEnd="16dp"/>
-
-                        <View
-                            android:id="@+id/main_dining_room_view"
-                            android:layout_width="0dp"
-                            android:layout_height="4dp"
-                            android:layout_marginTop="8dp"
-                            android:background="@color/primaryColor"
-                            />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/main_laundry_room"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Laundry Room"
-                            android:textColor="@color/grey"
-                            android:layout_marginEnd="16dp"/>
-
-                        <View
-                            android:id="@+id/main_laundry_room_view"
-                            android:layout_width="0dp"
-                            android:layout_height="4dp"
-                            android:layout_marginTop="8dp"
-                            android:background="@color/primaryColor"
-                            />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/main_balcony"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Balcony"
-                            android:textColor="@color/grey"
-                            android:layout_marginEnd="16dp"/>
-
-                        <View
-                            android:id="@+id/main_balcony_view"
-                            android:layout_width="0dp"
-                            android:layout_height="4dp"
-                            android:layout_marginTop="8dp"
-                            android:background="@color/primaryColor"
-                            />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/main_bedroom_primary"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Bedroom Primary"
-                            android:textColor="@color/grey"
-                            android:layout_marginEnd="16dp"/>
-
-                        <View
-                            android:id="@+id/main_bedroom_primary_view"
-                            android:layout_width="0dp"
-                            android:layout_height="4dp"
-                            android:layout_marginTop="8dp"
-                            android:background="@color/primaryColor"
-                            />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/main_bedroom_secondary"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Bedroom Secondary"
-                            android:textColor="@color/grey"
-                            android:layout_marginEnd="16dp"/>
-
-                        <View
-                            android:id="@+id/main_bedroom_secondary_view"
-                            android:layout_width="0dp"
-                            android:layout_height="4dp"
-                            android:layout_marginTop="8dp"
-                            android:background="@color/primaryColor"
-                            />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/main_toilet_primary"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Toilet Primary"
-                            android:textColor="@color/grey"
-                            android:layout_marginEnd="16dp"/>
-
-                        <View
-                            android:id="@+id/main_toilet_primary_view"
-                            android:layout_width="0dp"
-                            android:layout_height="4dp"
-                            android:layout_marginTop="8dp"
-                            android:background="@color/primaryColor"
-                            />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/main_toilet_secondary"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Toilet Secondary"
-                            android:textColor="@color/grey"
-                            android:layout_marginEnd="16dp"/>
-
-                        <View
-                            android:id="@+id/main_toilet_secondary_view"
-                            android:layout_width="0dp"
-                            android:layout_height="4dp"
-                            android:layout_marginTop="8dp"
-                            android:background="@color/primaryColor"
-                            />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/main_store_room_primary"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Store Room Primary"
-                            android:textColor="@color/grey"
-                            android:layout_marginEnd="16dp"/>
-
-                        <View
-                            android:id="@+id/main_store_room_primary_view"
-                            android:layout_width="0dp"
-                            android:layout_height="4dp"
-                            android:layout_marginTop="8dp"
-                            android:background="@color/primaryColor"
-                            />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/main_store_room_secondary"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Store Room Secondary"
-                            android:textColor="@color/grey"
-                            android:layout_marginEnd="16dp"/>
-
-                        <View
-                            android:id="@+id/main_store_room_secondary_view"
-                            android:layout_width="0dp"
-                            android:layout_height="4dp"
-                            android:layout_marginTop="8dp"
-                            android:background="@color/primaryColor"
-                            />
-
-                    </LinearLayout>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="                                                              "
-                        android:textColor="@color/grey"
-                        android:layout_marginEnd="16dp"/>
-
 
                 </LinearLayout>
 
-            </HorizontalScrollView>
+            </androidx.cardview.widget.CardView>
 
-        </ScrollView>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:background="@android:color/darker_gray"
+                />
+
+            <ScrollView
+                android:id="@+id/main_scroll_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <HorizontalScrollView
+                    android:id="@+id/main_horizontal_scroll_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none"
+                    android:overScrollMode="never"
+                    >
+
+                    <LinearLayout
+                        android:id="@+id/main_item_linear_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="12dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/main_living_room"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Living Room"
+                                android:layout_marginEnd="16dp"
+                                android:textColor="@color/primaryColor"
+                                android:textStyle="bold"
+                                />
+
+                            <View
+                                android:id="@+id/main_living_room_view"
+                                android:layout_width="0dp"
+                                android:layout_height="4dp"
+                                android:layout_marginTop="8dp"
+                                android:background="@color/primaryColor"
+                                />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/main_kitchen"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Kitchen"
+                                android:textColor="@color/grey"
+                                android:layout_marginEnd="16dp"/>
+
+                            <View
+                                android:id="@+id/main_kitchen_view"
+                                android:layout_width="0dp"
+                                android:layout_height="4dp"
+                                android:layout_marginTop="8dp"
+                                android:background="@color/primaryColor"
+                                />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/main_dining_room"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Dinning Room"
+                                android:textColor="@color/grey"
+                                android:layout_marginEnd="16dp"/>
+
+                            <View
+                                android:id="@+id/main_dining_room_view"
+                                android:layout_width="0dp"
+                                android:layout_height="4dp"
+                                android:layout_marginTop="8dp"
+                                android:background="@color/primaryColor"
+                                />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/main_laundry_room"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Laundry Room"
+                                android:textColor="@color/grey"
+                                android:layout_marginEnd="16dp"/>
+
+                            <View
+                                android:id="@+id/main_laundry_room_view"
+                                android:layout_width="0dp"
+                                android:layout_height="4dp"
+                                android:layout_marginTop="8dp"
+                                android:background="@color/primaryColor"
+                                />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/main_balcony"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Balcony"
+                                android:textColor="@color/grey"
+                                android:layout_marginEnd="16dp"/>
+
+                            <View
+                                android:id="@+id/main_balcony_view"
+                                android:layout_width="0dp"
+                                android:layout_height="4dp"
+                                android:layout_marginTop="8dp"
+                                android:background="@color/primaryColor"
+                                />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/main_bedroom_primary"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Bedroom Primary"
+                                android:textColor="@color/grey"
+                                android:layout_marginEnd="16dp"/>
+
+                            <View
+                                android:id="@+id/main_bedroom_primary_view"
+                                android:layout_width="0dp"
+                                android:layout_height="4dp"
+                                android:layout_marginTop="8dp"
+                                android:background="@color/primaryColor"
+                                />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/main_bedroom_secondary"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Bedroom Secondary"
+                                android:textColor="@color/grey"
+                                android:layout_marginEnd="16dp"/>
+
+                            <View
+                                android:id="@+id/main_bedroom_secondary_view"
+                                android:layout_width="0dp"
+                                android:layout_height="4dp"
+                                android:layout_marginTop="8dp"
+                                android:background="@color/primaryColor"
+                                />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/main_toilet_primary"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Toilet Primary"
+                                android:textColor="@color/grey"
+                                android:layout_marginEnd="16dp"/>
+
+                            <View
+                                android:id="@+id/main_toilet_primary_view"
+                                android:layout_width="0dp"
+                                android:layout_height="4dp"
+                                android:layout_marginTop="8dp"
+                                android:background="@color/primaryColor"
+                                />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/main_toilet_secondary"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Toilet Secondary"
+                                android:textColor="@color/grey"
+                                android:layout_marginEnd="16dp"/>
+
+                            <View
+                                android:id="@+id/main_toilet_secondary_view"
+                                android:layout_width="0dp"
+                                android:layout_height="4dp"
+                                android:layout_marginTop="8dp"
+                                android:background="@color/primaryColor"
+                                />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/main_store_room_primary"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Store Room Primary"
+                                android:textColor="@color/grey"
+                                android:layout_marginEnd="16dp"/>
+
+                            <View
+                                android:id="@+id/main_store_room_primary_view"
+                                android:layout_width="0dp"
+                                android:layout_height="4dp"
+                                android:layout_marginTop="8dp"
+                                android:background="@color/primaryColor"
+                                />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/main_store_room_secondary"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Store Room Secondary"
+                                android:textColor="@color/grey"
+                                android:layout_marginEnd="16dp"/>
+
+                            <View
+                                android:id="@+id/main_store_room_secondary_view"
+                                android:layout_width="0dp"
+                                android:layout_height="4dp"
+                                android:layout_marginTop="8dp"
+                                android:background="@color/primaryColor"
+                                />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="                                                              "
+                            android:textColor="@color/grey"
+                            android:layout_marginEnd="16dp"/>
+
+
+                    </LinearLayout>
+
+                </HorizontalScrollView>
+
+            </ScrollView>
 
 
 
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/main_view_pager"
-            android:layout_width="match_parent"
-            android:layout_height="350dp"
-            android:padding="4dp"
-            android:layout_marginTop="12dp"/>
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/main_view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:padding="4dp"
+                android:layout_marginTop="12dp"/>
 
-    </LinearLayout>
+        </LinearLayout>
 
-</ScrollView>
+    </ScrollView>
+
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:id="@+id/nav_item"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/drawer_menu"/>
+
+</androidx.drawerlayout.widget.DrawerLayout>

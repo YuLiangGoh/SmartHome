@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/nav_sensor"
+            android:icon="@drawable/menu_icon"
+            android:title="sensor"/>
+        <item android:id="@+id/nav_message"
+            android:icon="@drawable/menu_icon"
+            android:title="sensor"/>
+        <item android:id="@+id/nav_setting"
+            android:icon="@drawable/menu_icon"
+            android:title="setting"/>
+    </group>
+    <item android:title="Device">
+        <menu>
+            <item android:title="Laptop"
+                android:icon="@drawable/mac_icon"
+                android:id="@+id/kitchen"/>
+            <item android:title="Music"
+                android:icon="@drawable/music_icon"
+                android:id="@+id/speaker"/>
+            <item android:title="Share"
+                android:icon="@drawable/share_icon"
+                android:id="@+id/share"/>
+        </menu>
+    </item>
+
+
+</menu>

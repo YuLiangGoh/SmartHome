@@ -1,5 +1,7 @@
 package com.example.smarthome;
 
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
@@ -14,9 +16,12 @@ import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.widget.HorizontalScrollView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 
@@ -30,6 +35,8 @@ public class MainActivity extends FragmentActivity{
     private ViewPager viewPager;
     private PagerAdapter pagerAdapter;
     private View view0,view1,view2,view3,view4,view5,view6,view7,view8,view9,view10;
+    private ImageView menu;
+    private DrawerLayout drawer;
 
 
     private int NUM_PAGES = 11;
@@ -69,9 +76,12 @@ public class MainActivity extends FragmentActivity{
         view8 = findViewById(R.id.main_toilet_secondary_view);
         view9 = findViewById(R.id.main_store_room_primary_view);
         view10 = findViewById(R.id.main_store_room_secondary_view);
+        menu = findViewById(R.id.main_menu);
+        drawer = findViewById(R.id.drawer_layout);
 
         //set Username
         name.setText("Thomas Oliver");
+
 
         //Initiates View Pager
         pagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
@@ -195,6 +205,13 @@ public class MainActivity extends FragmentActivity{
             @Override
             public void onPageScrollStateChanged(int state) {
 
+            }
+        });
+
+        menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawer.openDrawer(GravityCompat.START);
             }
         });
 
@@ -400,5 +417,7 @@ public class MainActivity extends FragmentActivity{
         view9.getLayoutParams().width = 0;
         view10.getLayoutParams().width = 0;
     }
+
+
 
 }
