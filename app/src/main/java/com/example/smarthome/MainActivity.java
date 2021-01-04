@@ -10,7 +10,9 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
@@ -42,6 +44,7 @@ public class MainActivity extends FragmentActivity{
     private ImageView menu;
     private DrawerLayout drawer;
     private NavigationView navigationView;
+    private SharedPreferences sharedPreferences;
 
 
     private int NUM_PAGES = 11;

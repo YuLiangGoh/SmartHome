@@ -1,9 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AirConditionerSetting">
+    tools:context=".AirConditionerSetting"
+    android:orientation="vertical"
+    android:background="@color/secondaryColor">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/air_conditioner_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/back_icon"
+            android:backgroundTint="@color/black" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Air Conditioner"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_marginStart="18dp"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/aircon_icon"
+            android:layout_width="400dp"
+            android:layout_height="180dp"
+            android:background="@drawable/air_con_icon"
+            android:layout_gravity="center"/>
+
+        <ImageView
+            android:id="@+id/aircon_off_icon"
+            android:layout_width="400dp"
+            android:layout_height="180dp"
+            android:background="@drawable/air_con_off_icon"
+            android:layout_gravity="center"/>
+
+        <ImageView
+            android:id="@+id/aircon_on_icon"
+            android:layout_width="400dp"
+            android:layout_height="180dp"
+            android:background="@drawable/air_con_on_icon"
+            android:layout_gravity="center" />
+
+        <ImageView
+            android:id="@+id/aircon_wind_icon"
+            android:layout_width="400dp"
+            android:layout_height="180dp"
+            android:background="@drawable/air_con_wind_icon"
+            android:layout_gravity="center"
+            android:visibility="invisible"/>
+
+    </RelativeLayout>
+
+    <com.suke.widget.SwitchButton
+        android:id="@+id/on_off_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
+
+</LinearLayout>

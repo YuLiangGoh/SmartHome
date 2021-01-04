@@ -275,4 +275,17 @@ public class LivingRoom extends Fragment {
                 .setDuration(400)
                 .setListener(null);
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        sharedPreferences = getActivity().getSharedPreferences("Living_Room", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        air_con.setChecked(sharedPreferences.getBoolean("air_con_check",false));
+        if(sharedPreferences.getBoolean("air_con_check", false)){
+            setAirConViewActive();
+        }else{
+            setAirConViewUnActive();
+        }
+    }
 }
