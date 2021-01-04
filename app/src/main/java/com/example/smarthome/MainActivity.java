@@ -73,7 +73,8 @@ public class MainActivity extends FragmentActivity{
         //Initiates View Pager
         pagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(pagerAdapter);
-        view0.getLayoutParams().width = living_room.getWidth();
+
+
         //set view pager on page change listener
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -386,4 +387,5 @@ public class MainActivity extends FragmentActivity{
         view9.getLayoutParams().width = 0;
         view10.getLayoutParams().width = 0;
     }
+
 }
