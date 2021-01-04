@@ -8,9 +8,10 @@
     android:orientation="vertical"
     android:background="@color/secondaryColor">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/aircon"
@@ -18,7 +19,9 @@
             android:layout_height="300dp"
             android:elevation="2dp"
             app:cardCornerRadius="8dp"
-            android:layout_marginStart="20dp">
+            android:layout_marginStart="20dp"
+            android:layout_weight="1"
+            android:padding="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -138,9 +141,9 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toLeftOf="@+id/aircon"
+            android:padding="10dp"
             android:orientation="vertical"
-            android:layout_alignParentRight="true">
+            android:layout_weight="1">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -195,7 +198,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_below="@id/light_card"
                     android:layout_marginTop="20dp"
@@ -249,6 +252,6 @@
 
         </LinearLayout>
 
-    </RelativeLayout>
+    </LinearLayout>
 
 </LinearLayout>
