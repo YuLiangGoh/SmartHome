@@ -5,22 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LivingRoom"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:background="@color/secondaryColor">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_marginEnd="4dp">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/aircon"
-            android:layout_width="150dp"
-            android:layout_height="300dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:elevation="2dp"
-            app:cardCornerRadius="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_weight="1">
+            app:cardCornerRadius="8dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -50,10 +50,9 @@
                 </RelativeLayout>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:padding="8dp">
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -61,68 +60,19 @@
                         android:text="Daikin Air Conditioner"
                         android:textColor="@color/primaryColor"
                         android:textStyle="bold" />
-                </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="10dp">
-
-                    <View
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/outlinedButton"
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@android:color/background_light"
-                        android:elevation="2dp"
+                        android:layout_height="wrap_content"
+                        android:text="Setting"
+                        android:textSize="12sp"
+                        android:textColor="@color/primaryColor"
+                        app:icon="@drawable/setting_icon"
+                        app:iconSize="24dp"
+                        app:iconTint="@color/primaryColor"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                         />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="10dp">
-
-                        <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:background="@drawable/thermometer"/>
-
-                        <TextView
-                            android:id="@+id/temperature"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:text="16\u2103"
-                            android:textSize="24dp"
-                            android:textStyle="bold"/>
-
-                    </LinearLayout>
-
-                    <SeekBar
-                        android:id="@+id/temperatureBar"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:progressTint="@color/teal_200"
-                        android:max="32"
-                        android:min="16" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="swing"
-                            android:textStyle="bold"/>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -130,12 +80,18 @@
 
         </androidx.cardview.widget.CardView>
 
-        <LinearLayout
-            android:layout_width="150dp"
-            android:layout_height="300dp"
-            android:orientation="vertical"
-            android:layout_weight="1"
-            android:layout_marginStart="16dp">
+
+    </LinearLayout>
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_marginStart="4dp">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -168,7 +124,6 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
                             app:sb_checked_color="@color/primaryColor" />
-
                     </RelativeLayout>
 
                     <LinearLayout
@@ -191,58 +146,54 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:cardCornerRadius="8dp">
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    app:cardCornerRadius="8dp">
+                    android:orientation="vertical"
+                    android:padding="8dp">
 
-                    <LinearLayout
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="8dp">
+                        android:padding="8dp"
+                        android:orientation="horizontal">
 
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:padding="8dp"
-                            android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/tv"
+                            android:backgroundTint="@color/primaryColor" />
 
-                            <ImageView
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
-                                android:background="@drawable/tv"
-                                android:backgroundTint="@color/primaryColor" />
-
-                            <com.suke.widget.SwitchButton
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentEnd="true"
-                                app:sb_checked_color="@color/primaryColor" />
-
-                        </RelativeLayout>
-
-                        <LinearLayout
+                        <com.suke.widget.SwitchButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:padding="5dp">
+                            android:layout_alignParentEnd="true"
+                            app:sb_checked_color="@color/primaryColor" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Smart TV"
-                                android:textColor="@color/primaryColor"
-                                android:textStyle="bold"/>
+                    </RelativeLayout>
 
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="5dp">
 
-                        </LinearLayout>
-
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Smart TV"
+                            android:textColor="@color/primaryColor"
+                            android:textStyle="bold"/>
                     </LinearLayout>
 
-                </androidx.cardview.widget.CardView>
+                </LinearLayout>
 
-        </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
     </LinearLayout>
 
