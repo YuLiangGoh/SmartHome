@@ -94,7 +94,6 @@ public class MainActivity extends FragmentActivity{
             @Override
             public void run() {
                 //Do something after 100ms
-                Log.d(TAG, "onPageSelected: living room width"+ living_room.getWidth());
                 view0.getLayoutParams().width = living_room.getWidth();
                 view0.setMinimumWidth(living_room.getWidth());
             }

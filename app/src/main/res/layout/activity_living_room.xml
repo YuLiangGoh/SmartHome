@@ -37,6 +37,7 @@
                     android:padding="8dp">
 
                     <ImageView
+                        android:id="@+id/living_room_air_con_icon"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_centerVertical="true"
@@ -45,6 +46,7 @@
                         />
 
                     <com.suke.widget.SwitchButton
+                        android:id="@+id/living_room_air_con_switch"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
@@ -58,6 +60,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/living_room_air_con_title"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="Daikin Air Conditioner"
@@ -69,14 +72,14 @@
                         />
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/outlinedButton"
+                        android:id="@+id/living_room_outlinedButton_setting"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Setting"
                         android:textSize="12sp"
                         android:textColor="@color/primaryColor"
                         app:icon="@drawable/setting_icon"
-                        app:iconSize="24dp"
+                        app:iconSize="16dp"
                         app:iconTint="@color/primaryColor"
                         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                         android:layout_marginTop="12dp"
@@ -86,6 +89,7 @@
                         />
 
                     <RelativeLayout
+                        android:id="@+id/living_room_temperature_title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
@@ -114,6 +118,7 @@
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:id="@+id/living_room_swing_title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
@@ -142,6 +147,7 @@
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:id="@+id/living_room_timer_title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
@@ -208,6 +214,7 @@
                         android:padding="10dp">
 
                         <ImageView
+                            android:id="@+id/living_room_smart_light_icon"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:layout_centerVertical="true"
@@ -215,6 +222,7 @@
                              />
 
                         <com.suke.widget.SwitchButton
+                            android:id="@+id/living_room_smart_light_switch"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
@@ -228,6 +236,7 @@
                         android:padding="10dp">
 
                         <TextView
+                            android:id="@+id/living_room_smart_light_title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Smart Light"
@@ -260,12 +269,14 @@
                         android:orientation="horizontal">
 
                         <ImageView
+                            android:id="@+id/living_room_smart_tv_icon"
                             android:layout_width="40dp"
                             android:layout_height="40dp"
                             android:background="@drawable/tv_icon"
                              />
 
                         <com.suke.widget.SwitchButton
+                            android:id="@+id/living_room_smart_tv_switch"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
@@ -280,6 +291,7 @@
                         android:padding="5dp">
 
                         <TextView
+                            android:id="@+id/living_room_smart_tv_title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Smart TV"
