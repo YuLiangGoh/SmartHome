@@ -9,6 +9,9 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.util.Log;
 import android.view.View;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
@@ -74,6 +77,16 @@ public class MainActivity extends FragmentActivity{
         pagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(pagerAdapter);
 
+        final Handler handler = new Handler(Looper.getMainLooper());
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                //Do something after 100ms
+                Log.d(TAG, "onPageSelected: living room width"+ living_room.getWidth());
+                view0.getLayoutParams().width = living_room.getWidth();
+                view0.setMinimumWidth(living_room.getWidth());
+            }
+        }, 100);
 
         //set view pager on page change listener
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
