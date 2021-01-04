@@ -17,17 +17,17 @@
     <item android:title="Connected Device">
         <menu>
             <item android:title="Lamp"
-                android:icon="@drawable/mac_icon"
+                android:icon="@drawable/bulb_icon"
                 android:id="@+id/lamp"/>
             <item android:title="Door"
-                android:icon="@drawable/music_icon"
+                android:icon="@drawable/door_icon"
                 android:id="@+id/speaker"/>
             <item android:title="Alarm"
                 android:icon="@drawable/speaker_icon"
                 android:id="@+id/alarm"
                 />
             <item android:title="Sound System"
-                android:icon="@drawable/share_icon"
+                android:icon="@drawable/subwoofer_icon"
                 android:id="@+id/sound_system"/>
         </menu>
     </item>
