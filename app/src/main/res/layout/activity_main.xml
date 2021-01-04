@@ -41,6 +41,7 @@
                 android:background="@drawable/homepage_background_icon">
 
                 <TextView
+                    android:id="@+id/welcome_mesage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Welcome Home,"

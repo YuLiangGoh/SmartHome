@@ -15,6 +15,8 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -27,7 +29,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends FragmentActivity{
 
-    private TextView name;
+    private TextView name,welcome_message;
     private TextView living_room, kitchen, dining_room, laundry_room, balcony, bedroom_primary, bedroom_secondary, toilet_primary, toilet_secondary, store_room_primary, store_room_secondary;
     private ScrollView scrollView;
     private HorizontalScrollView horizontalScrollView;
@@ -49,6 +51,7 @@ public class MainActivity extends FragmentActivity{
         setContentView(R.layout.activity_main);
 
         //Find ID
+        welcome_message = findViewById(R.id.welcome_mesage);
         name = findViewById(R.id.main_username);
         living_room = findViewById(R.id.main_living_room);
         kitchen = findViewById(R.id.main_kitchen);
@@ -84,6 +87,12 @@ public class MainActivity extends FragmentActivity{
         //set Username
         name.setText("Thomas Oliver");
         navigationView.setItemIconTintList(null);
+
+        //start animation
+        Animation animation = AnimationUtils.loadAnimation(MainActivity.this,R.anim.slide_in_right_medium);
+        Animation animation1 = AnimationUtils.loadAnimation(MainActivity.this,R.anim.slide_in_right_slow);
+        welcome_message.startAnimation(animation);
+        name.startAnimation(animation1);
 
         //Initiates View Pager
         pagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
