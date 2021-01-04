@@ -8,7 +8,7 @@
     android:background="@color/secondaryColor"
     android:fitsSystemWindows="true"
     android:id="@+id/drawer_layout"
-    tools:openDrawer="start">
+    >
 
     <ScrollView
         android:layout_width="match_parent"
@@ -127,7 +127,7 @@
                         <ImageView
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:background="@drawable/power_icon"
+                            android:background="@drawable/socket_icon"
                             android:layout_gravity="center"
                             android:layout_marginEnd="14dp"/>
 

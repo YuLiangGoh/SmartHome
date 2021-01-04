@@ -37,6 +37,7 @@ public class MainActivity extends FragmentActivity{
     private View view0,view1,view2,view3,view4,view5,view6,view7,view8,view9,view10;
     private ImageView menu;
     private DrawerLayout drawer;
+    private NavigationView navigationView;
 
 
     private int NUM_PAGES = 11;
@@ -78,10 +79,11 @@ public class MainActivity extends FragmentActivity{
         view10 = findViewById(R.id.main_store_room_secondary_view);
         menu = findViewById(R.id.main_menu);
         drawer = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.nav_item);
 
         //set Username
         name.setText("Thomas Oliver");
-
+        navigationView.setItemIconTintList(null);
 
         //Initiates View Pager
         pagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
