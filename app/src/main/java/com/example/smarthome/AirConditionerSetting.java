@@ -52,10 +52,8 @@ public class AirConditionerSetting extends AppCompatActivity {
             croller.setLabel("16 \u2103");
         }else{
             String temp = sharedPreferences.getString("temperature","");
-            Log.d(TAG, "onCreate: " + temp);
             croller.setLabel( temp + " \u2103");
             int temp_integer = Integer.parseInt(temp) - 15;
-            Log.d(TAG, "onCreate: " + temp_integer);
             croller.setProgress(temp_integer);
         }
 
@@ -71,7 +69,6 @@ public class AirConditionerSetting extends AppCompatActivity {
         croller.setOnCrollerChangeListener(new OnCrollerChangeListener() {
             @Override
             public void onProgressChanged(Croller croller, int progress) {
-                Log.d(TAG, "onProgressChanged: " + String.valueOf(progress + 15));
                 croller.setLabel(String.valueOf(progress + 15));
             }
 
