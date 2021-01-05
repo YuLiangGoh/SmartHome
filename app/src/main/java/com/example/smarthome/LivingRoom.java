@@ -15,6 +15,8 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,7 +38,7 @@ public class LivingRoom extends Fragment {
     private SwitchButton air_con, smart_light, smart_tv;
     private ImageView air_con_icon, smart_light_icon, smart_tv_icon;
     private RelativeLayout degree, swing, timer;
-    private TextView air_con_title,smart_light_title,smart_tv_title;
+    private TextView air_con_title,smart_light_title,smart_tv_title,temperature;
     private SharedPreferences sharedPreferences;
     
     private String TAG = LivingRoom.class.getSimpleName();
@@ -60,6 +62,7 @@ public class LivingRoom extends Fragment {
         air_con_title = rootView.findViewById(R.id.living_room_air_con_title);
         smart_light_title = rootView.findViewById(R.id.living_room_smart_light_title);
         smart_tv_title = rootView.findViewById(R.id.living_room_smart_tv_title);
+        temperature = rootView.findViewById(R.id.living_room_temperature);
 
         //pre new setting
         setAirConViewUnActive();
@@ -81,6 +84,20 @@ public class LivingRoom extends Fragment {
         if(sharedPreferences.getBoolean("smart_tv_check", false)){
             setSmartTvViewActive();
         }
+        if(sharedPreferences.getString("temperature","").equals("")){
+            final Handler handler = new Handler(Looper.getMainLooper());
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    //Do something after 100ms
+                    temperature.setText("16 \u2103");
+                }
+            }, 100);
+        }else{
+            String temp = sharedPreferences.getString("temperature","");
+            temperature.setText( temp + " \u2103");
+        }
+
 
         setting.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -287,5 +304,7 @@ public class LivingRoom extends Fragment {
         }else{
             setAirConViewUnActive();
         }
+        String temp = sharedPreferences.getString("temperature","");
+        temperature.setText( temp + " \u2103");
     }
 }

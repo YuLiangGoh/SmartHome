@@ -19,14 +19,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/back_icon"
-            android:backgroundTint="@color/black" />
+            android:backgroundTint="@color/primaryColor" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Air Conditioner"
             android:textSize="18sp"
-            android:textColor="@color/black"
+            android:textColor="@color/primaryColor"
             android:textStyle="bold"
             android:layout_gravity="center"
             android:layout_marginStart="18dp"/>
@@ -68,6 +68,23 @@
             android:visibility="invisible"/>
 
     </RelativeLayout>
+
+    <com.sdsmdg.harjot.crollerTest.Croller
+        android:id="@+id/croller"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:back_circle_color="#EDEDED"
+        app:indicator_color="#0B3C49"
+        app:indicator_width="10"
+        app:is_continuous="false"
+        app:label_color="#000000"
+        app:label=""
+        app:main_circle_color="#FFFFFF"
+        app:max="17"
+        app:progress_primary_color="#0B3C49"
+        app:progress_secondary_color="@color/primaryColor"
+        app:start_offset="45" />
 
     <com.suke.widget.SwitchButton
         android:id="@+id/on_off_button"
