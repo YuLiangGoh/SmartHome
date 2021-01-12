@@ -165,7 +165,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginBottom="8dp"/>
+                        android:layout_marginBottom="8dp"
+                        app:sb_checked_color="@color/primaryColor"/>
 
                 </LinearLayout>
 

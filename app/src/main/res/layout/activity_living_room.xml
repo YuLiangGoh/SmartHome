@@ -148,6 +148,35 @@
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:id="@+id/living_room_turbo_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="16dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toStartOf="@+id/main_turbo_icon"
+                            android:text="Turbo"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:textSize="12sp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="10dp"/>
+
+                        <ImageView
+                            android:id="@+id/main_turbo_icon"
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:background="@drawable/turbo_icon"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="10dp"
+                            android:backgroundTint="@color/lightyellow"
+                            />
+                    </RelativeLayout>
+
+                    <RelativeLayout
                         android:id="@+id/living_room_timer_title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

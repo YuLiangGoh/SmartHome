@@ -81,7 +81,7 @@ public class AirConditionerSetting extends AppCompatActivity {
 
         if(sharedPreferences.getBoolean("air_con_turbo_check",false)){
             turbo_check = true;
-            turbo.getBackground().setTint(getResources().getColor(R.color.lightgreen,getApplication().getTheme()));
+            turbo.getBackground().setTint(getResources().getColor(R.color.lightyellow,getApplication().getTheme()));
         }else{
             turbo_check = false;
             turbo.getBackground().setTint(getResources().getColor(R.color.grey,getApplication().getTheme()));
@@ -89,7 +89,7 @@ public class AirConditionerSetting extends AppCompatActivity {
 
         if(sharedPreferences.getBoolean("air_con_timer_check",false)){
             timer_check = true;
-            timer.getBackground().setTint(getResources().getColor(R.color.snowblue,getApplication().getTheme()));
+            timer.getBackground().setTint(getResources().getColor(R.color.lightgreen,getApplication().getTheme()));
         }else{
             timer_check = false;
             timer.getBackground().setTint(getResources().getColor(R.color.grey,getApplication().getTheme()));
@@ -153,7 +153,7 @@ public class AirConditionerSetting extends AppCompatActivity {
                     editor.putBoolean("air_con_turbo_check", turbo_check);
                     editor.apply();
                 }else if(!turbo_check){
-                    turbo.getBackground().setTint(getResources().getColor(R.color.lightgreen,getApplication().getTheme()));
+                    turbo.getBackground().setTint(getResources().getColor(R.color.lightyellow,getApplication().getTheme()));
                     turbo_check = true;
                     editor.putBoolean("air_con_turbo_check", turbo_check);
                     editor.apply();
@@ -170,7 +170,7 @@ public class AirConditionerSetting extends AppCompatActivity {
                     editor.putBoolean("air_con_timer_check", timer_check);
                     editor.apply();
                 }else if(!timer_check){
-                    timer.getBackground().setTint(getResources().getColor(R.color.snowblue,getApplication().getTheme()));
+                    timer.getBackground().setTint(getResources().getColor(R.color.lightgreen,getApplication().getTheme()));
                     timer_check = true;
                     editor.putBoolean("air_con_timer_check", timer_check);
                     editor.apply();

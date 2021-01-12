@@ -37,7 +37,7 @@ public class LivingRoom extends Fragment {
     private Button setting;
     private SwitchButton air_con, smart_light, smart_tv;
     private ImageView air_con_icon, smart_light_icon, smart_tv_icon;
-    private RelativeLayout degree, swing, timer;
+    private RelativeLayout degree, swing, timer, turbo;
     private TextView air_con_title,smart_light_title,smart_tv_title,temperature;
     private SharedPreferences sharedPreferences;
     
@@ -58,6 +58,7 @@ public class LivingRoom extends Fragment {
         smart_tv_icon = rootView.findViewById(R.id.living_room_smart_tv_icon);
         degree = rootView.findViewById(R.id.living_room_temperature_title);
         swing = rootView.findViewById(R.id.living_room_swing_title);
+        turbo = rootView.findViewById(R.id.living_room_turbo_title);
         timer = rootView.findViewById(R.id.living_room_timer_title);
         air_con_title = rootView.findViewById(R.id.living_room_air_con_title);
         smart_light_title = rootView.findViewById(R.id.living_room_smart_light_title);
@@ -96,6 +97,24 @@ public class LivingRoom extends Fragment {
         }else{
             String temp = sharedPreferences.getString("temperature","");
             temperature.setText( temp + " \u2103");
+        }
+
+        if(sharedPreferences.getBoolean("air_con_swing_check",false)){
+            swing.setVisibility(View.VISIBLE);
+        }else{
+            swing.setVisibility(View.GONE);
+        }
+
+        if(sharedPreferences.getBoolean("air_con_turbo_check",false)){
+            turbo.setVisibility(View.VISIBLE);
+        }else{
+            turbo.setVisibility(View.GONE);
+        }
+
+        if(sharedPreferences.getBoolean("air_con_timer_check",false)){
+            swing.setVisibility(View.VISIBLE);
+        }else{
+            swing.setVisibility(View.GONE);
         }
 
 
@@ -181,6 +200,12 @@ public class LivingRoom extends Fragment {
                 .setDuration(400)
                 .setListener(null);
 
+        turbo.setAlpha(1f);
+        turbo.animate()
+                .alpha(0.25f)
+                .setDuration(400)
+                .setListener(null);
+
         timer.setAlpha(1f);
         timer.animate()
                 .alpha(0.25f)
@@ -203,6 +228,7 @@ public class LivingRoom extends Fragment {
                 .setDuration(400)
                 .setListener(null);
 
+
         setting.setAlpha(0.25f);
         setting.setVisibility(View.VISIBLE);
         setting.animate()
@@ -218,19 +244,32 @@ public class LivingRoom extends Fragment {
                 .setDuration(400)
                 .setListener(null);
 
-        swing.setAlpha(0.25f);
-        swing.setVisibility(View.VISIBLE);
-        swing.animate()
-                .alpha(1f)
-                .setDuration(400)
-                .setListener(null);
+        if(swing.getVisibility()!=View.GONE){
+            swing.setAlpha(0.25f);
+            swing.setVisibility(View.VISIBLE);
+            swing.animate()
+                    .alpha(1f)
+                    .setDuration(400)
+                    .setListener(null);
+        }
 
-        timer.setAlpha(0.25f);
-        timer.setVisibility(View.VISIBLE);
-        timer.animate()
-                .alpha(1f)
-                .setDuration(400)
-                .setListener(null);
+        if(turbo.getVisibility()!=View.GONE){
+            turbo.setAlpha(0.25f);
+            turbo.setVisibility(View.VISIBLE);
+            turbo.animate()
+                    .alpha(1f)
+                    .setDuration(400)
+                    .setListener(null);
+        }
+
+        if(timer.getVisibility()!=View.GONE){
+            timer.setAlpha(0.25f);
+            timer.setVisibility(View.VISIBLE);
+            timer.animate()
+                    .alpha(1f)
+                    .setDuration(400)
+                    .setListener(null);
+        }
     }
 
     private void setSmartLightViewUnActive(){
@@ -306,5 +345,41 @@ public class LivingRoom extends Fragment {
         }
         String temp = sharedPreferences.getString("temperature","");
         temperature.setText( temp + " \u2103");
+
+        if(sharedPreferences.getBoolean("air_con_swing_check",false)){
+            swing.setVisibility(View.VISIBLE);
+            swing.setAlpha(0.25f);
+            swing.setVisibility(View.VISIBLE);
+            swing.animate()
+                    .alpha(1f)
+                    .setDuration(400)
+                    .setListener(null);
+        }else{
+            swing.setVisibility(View.GONE);
+        }
+
+        if(sharedPreferences.getBoolean("air_con_turbo_check",false)){
+            turbo.setVisibility(View.VISIBLE);
+            turbo.setAlpha(0.25f);
+            turbo.setVisibility(View.VISIBLE);
+            turbo.animate()
+                    .alpha(1f)
+                    .setDuration(400)
+                    .setListener(null);
+        }else{
+            turbo.setVisibility(View.GONE);
+        }
+
+        if(sharedPreferences.getBoolean("air_con_timer_check",false)){
+            timer.setVisibility(View.VISIBLE);
+            timer.setAlpha(0.25f);
+            timer.setVisibility(View.VISIBLE);
+            timer.animate()
+                    .alpha(1f)
+                    .setDuration(400)
+                    .setListener(null);
+        }else{
+            timer.setVisibility(View.GONE);
+        }
     }
 }
