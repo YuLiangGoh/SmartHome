@@ -7,6 +7,7 @@ import androidx.fragment.app.DialogFragment;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.app.TimePickerDialog;
+import android.content.ContentProvider;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -39,6 +40,17 @@ public class AirConditionerSetting extends AppCompatActivity implements TimePick
     private NotificationHelper notificationHelper;
 
     private String TAG = AirConditionerSetting.class.getSimpleName();
+
+    private static AirConditionerSetting airConditionerSetting;
+
+    public AirConditionerSetting(){
+        airConditionerSetting = this;
+    }
+
+    public static AirConditionerSetting getInstance() {
+        return airConditionerSetting;
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -273,6 +285,22 @@ public class AirConditionerSetting extends AppCompatActivity implements TimePick
         if(!sharedPreferences.getBoolean("air_con_timer_check",false)){
             timer.getBackground().setTint(getResources().getColor(R.color.grey,getApplication().getTheme()));
             timer_check = false;
+        }
+        if(!sharedPreferences.getBoolean("air_con_check", false)){
+            on_off_button.setChecked(false);
+            finish();
+        }
+    }
+
+    public void refresh(){
+        //refresh Logic here
+        if(!sharedPreferences.getBoolean("air_con_timer_check",false)){
+            timer.getBackground().setTint(getResources().getColor(R.color.grey,getApplication().getTheme()));
+            timer_check = false;
+        }
+        if(!sharedPreferences.getBoolean("air_con_check", false)){
+            on_off_button.setChecked(false);
+            setAirConViewUnActive();
         }
     }
 

@@ -43,6 +43,17 @@ public class LivingRoom extends Fragment {
     
     private String TAG = LivingRoom.class.getSimpleName();
 
+    private static LivingRoom livingRoom;
+
+    public LivingRoom(){
+        livingRoom = this;
+    }
+
+    public static LivingRoom getInstance() {
+        return livingRoom;
+    }
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -368,6 +379,28 @@ public class LivingRoom extends Fragment {
                     .setListener(null);
         }else{
             turbo.setVisibility(View.GONE);
+        }
+
+        if(sharedPreferences.getBoolean("air_con_timer_check",false)){
+            timer.setVisibility(View.VISIBLE);
+            timer.setAlpha(0.25f);
+            timer.setVisibility(View.VISIBLE);
+            timer.animate()
+                    .alpha(1f)
+                    .setDuration(400)
+                    .setListener(null);
+        }else{
+            timer.setVisibility(View.GONE);
+        }
+    }
+
+    public void refresh(){
+        //refresh Logic here
+        if(sharedPreferences.getBoolean("air_con_check", false)){
+            setAirConViewActive();
+        }else{
+            air_con.setChecked(false);
+            setAirConViewUnActive();
         }
 
         if(sharedPreferences.getBoolean("air_con_timer_check",false)){

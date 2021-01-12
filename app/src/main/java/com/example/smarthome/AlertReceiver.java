@@ -18,6 +18,15 @@ public class AlertReceiver extends BroadcastReceiver {
         sharedPreferences = context.getSharedPreferences("Living_Room", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean("air_con_timer_check", false);
+        editor.putBoolean("air_con_check",false);
         editor.apply();
+
+        if(AirConditionerSetting.getInstance()!=null){
+            AirConditionerSetting.getInstance().refresh();
+        }
+
+        if(LivingRoom.getInstance()!=null){
+            LivingRoom.getInstance().refresh();
+        }
     }
 }
