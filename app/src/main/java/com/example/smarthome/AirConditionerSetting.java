@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,6 +22,8 @@ public class AirConditionerSetting extends AppCompatActivity {
     private SharedPreferences sharedPreferences;
     private SwitchButton on_off_button;
     private Croller croller;
+    private Button swing,turbo,timer;
+    boolean swing_check,turbo_check,timer_check;
 
     private String TAG = AirConditionerSetting.class.getSimpleName();
 
@@ -37,6 +40,9 @@ public class AirConditionerSetting extends AppCompatActivity {
         wind = findViewById(R.id.aircon_wind_icon);
         on_off_button = findViewById(R.id.on_off_button);
         croller = findViewById(R.id.croller);
+        swing = findViewById(R.id.button_air_con_swing);
+        turbo = findViewById(R.id.button_air_con_turbo);
+        timer = findViewById(R.id.button_air_con_timer);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +69,30 @@ public class AirConditionerSetting extends AppCompatActivity {
         }else{
             on_off_button.setChecked(false);
             setAirConViewUnActive();
+        }
+
+        if(sharedPreferences.getBoolean("air_con_swing_check",false)){
+            swing_check = true;
+            swing.getBackground().setTint(getResources().getColor(R.color.lightorange,getApplication().getTheme()));
+        }else{
+            swing_check = false;
+            swing.getBackground().setTint(getResources().getColor(R.color.grey,getApplication().getTheme()));
+        }
+
+        if(sharedPreferences.getBoolean("air_con_turbo_check",false)){
+            turbo_check = true;
+            turbo.getBackground().setTint(getResources().getColor(R.color.lightgreen,getApplication().getTheme()));
+        }else{
+            turbo_check = false;
+            turbo.getBackground().setTint(getResources().getColor(R.color.grey,getApplication().getTheme()));
+        }
+
+        if(sharedPreferences.getBoolean("air_con_timer_check",false)){
+            timer_check = true;
+            timer.getBackground().setTint(getResources().getColor(R.color.snowblue,getApplication().getTheme()));
+        }else{
+            timer_check = false;
+            timer.getBackground().setTint(getResources().getColor(R.color.grey,getApplication().getTheme()));
         }
 
         croller.setLabel(String.valueOf(croller.getProgress()));
@@ -97,6 +127,56 @@ public class AirConditionerSetting extends AppCompatActivity {
             }
         });
 
+        swing.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(swing_check){
+                    swing.getBackground().setTint(getResources().getColor(R.color.grey,getApplication().getTheme()));
+                    swing_check = false;
+                    editor.putBoolean("air_con_swing_check", swing_check);
+                    editor.apply();
+                }else if(!swing_check){
+                    swing.getBackground().setTint(getResources().getColor(R.color.lightorange,getApplication().getTheme()));
+                    swing_check = true;
+                    editor.putBoolean("air_con_swing_check", swing_check);
+                    editor.apply();
+                }
+            }
+        });
+
+        turbo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(turbo_check){
+                    turbo.getBackground().setTint(getResources().getColor(R.color.grey,getApplication().getTheme()));
+                    turbo_check = false;
+                    editor.putBoolean("air_con_turbo_check", turbo_check);
+                    editor.apply();
+                }else if(!turbo_check){
+                    turbo.getBackground().setTint(getResources().getColor(R.color.lightgreen,getApplication().getTheme()));
+                    turbo_check = true;
+                    editor.putBoolean("air_con_turbo_check", turbo_check);
+                    editor.apply();
+                }
+            }
+        });
+
+        timer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(timer_check){
+                    timer.getBackground().setTint(getResources().getColor(R.color.grey,getApplication().getTheme()));
+                    timer_check = false;
+                    editor.putBoolean("air_con_timer_check", timer_check);
+                    editor.apply();
+                }else if(!timer_check){
+                    timer.getBackground().setTint(getResources().getColor(R.color.snowblue,getApplication().getTheme()));
+                    timer_check = true;
+                    editor.putBoolean("air_con_timer_check", timer_check);
+                    editor.apply();
+                }
+            }
+        });
     }
 
     private void setAirConViewActive(){
