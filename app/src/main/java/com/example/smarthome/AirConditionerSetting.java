@@ -1,8 +1,14 @@
 package com.example.smarthome;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.fragment.app.DialogFragment;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.media.Image;
@@ -11,12 +17,17 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.sdsmdg.harjot.crollerTest.Croller;
 import com.sdsmdg.harjot.crollerTest.OnCrollerChangeListener;
 import com.suke.widget.SwitchButton;
 
-public class AirConditionerSetting extends AppCompatActivity {
+import java.text.DateFormat;
+import java.util.Calendar;
+
+public class AirConditionerSetting extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener {
 
     private ImageView on,off,wind,aircon,back;
     private SharedPreferences sharedPreferences;
@@ -24,6 +35,8 @@ public class AirConditionerSetting extends AppCompatActivity {
     private Croller croller;
     private Button swing,turbo,timer;
     boolean swing_check,turbo_check,timer_check;
+
+    private NotificationHelper notificationHelper;
 
     private String TAG = AirConditionerSetting.class.getSimpleName();
 
@@ -43,6 +56,7 @@ public class AirConditionerSetting extends AppCompatActivity {
         swing = findViewById(R.id.button_air_con_swing);
         turbo = findViewById(R.id.button_air_con_turbo);
         timer = findViewById(R.id.button_air_con_timer);
+        notificationHelper = new NotificationHelper(this);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -164,16 +178,16 @@ public class AirConditionerSetting extends AppCompatActivity {
         timer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //sendNotificationTimer("Alarm","Aircon open!");
                 if(timer_check){
                     timer.getBackground().setTint(getResources().getColor(R.color.grey,getApplication().getTheme()));
                     timer_check = false;
                     editor.putBoolean("air_con_timer_check", timer_check);
                     editor.apply();
+                    cancelAlarm();
                 }else if(!timer_check){
-                    timer.getBackground().setTint(getResources().getColor(R.color.lightgreen,getApplication().getTheme()));
-                    timer_check = true;
-                    editor.putBoolean("air_con_timer_check", timer_check);
-                    editor.apply();
+                    DialogFragment dialogFragment = new TimePickerFragment();
+                    dialogFragment.show(getSupportFragmentManager(),"time picker");
                 }
             }
         });
@@ -203,4 +217,63 @@ public class AirConditionerSetting extends AppCompatActivity {
         on.setVisibility(View.INVISIBLE);
         off.setVisibility(View.VISIBLE);
     }
+
+    public void sendNotificationTimer(String title, String message){
+        NotificationCompat.Builder nb = notificationHelper.getChannel1Notification(title,message);
+        notificationHelper.getManager().notify(1,nb.build());
+    }
+
+    @Override
+    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+        timer.getBackground().setTint(getResources().getColor(R.color.lightgreen,getApplication().getTheme()));
+        timer_check = true;
+        sharedPreferences = getSharedPreferences("Living_Room", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("air_con_timer_check", timer_check);
+        editor.apply();
+
+        Calendar c = Calendar.getInstance();
+        c.set(Calendar.HOUR_OF_DAY,hourOfDay);
+        c.set(Calendar.MINUTE,minute);
+        c.set(Calendar.SECOND,0);
+
+        updateTimeText(c);
+        startAlarm(c);
+    }
+
+    private void updateTimeText(Calendar c){
+        String timeText = "Alarm set for: ";
+        timeText += DateFormat.getTimeInstance(DateFormat.SHORT).format(c.getTime());
+
+        Toast.makeText(this,timeText,Toast.LENGTH_SHORT);
+    }
+
+    private void startAlarm(Calendar c){
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(this,AlertReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this,1,intent,0);
+        if(c.before(Calendar.getInstance())){
+            c.add(Calendar.DATE,1);
+        }
+        alarmManager.setExact(AlarmManager.RTC_WAKEUP,c.getTimeInMillis(),pendingIntent);
+    }
+
+    private void cancelAlarm(){
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(this,AlertReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this,1,intent,0);
+        alarmManager.cancel(pendingIntent);
+        Toast.makeText(this,"Alarm canceled.",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        sharedPreferences = getSharedPreferences("Living_Room", Context.MODE_PRIVATE);
+        if(!sharedPreferences.getBoolean("air_con_timer_check",false)){
+            timer.getBackground().setTint(getResources().getColor(R.color.grey,getApplication().getTheme()));
+            timer_check = false;
+        }
+    }
+
 }
