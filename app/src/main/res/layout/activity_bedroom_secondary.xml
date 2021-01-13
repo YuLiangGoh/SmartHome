@@ -201,7 +201,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp">
+                android:padding="4dp">
 
                 <ImageView
                     android:id="@+id/secondary_bedroom_smart_light_icon"
@@ -216,8 +216,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/secondary_bedroom_smart_light_icon"
                     android:layout_toLeftOf="@id/secondary_bedroom_smart_light_switch"
+                    android:layout_toRightOf="@id/secondary_bedroom_smart_light_icon"
                     android:gravity="center"
                     android:text="Smart Light"
                     android:textColor="@color/primaryColor"
@@ -243,7 +243,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp">
+                android:padding="4dp">
 
                 <ImageView
                     android:id="@+id/secondary_bedroom_smart_tv_icon"
@@ -285,8 +285,8 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp">
+                android:layout_height="match_parent"
+                android:padding="4dp">
 
                 <ImageView
                     android:id="@+id/secondary_bedroom_smart_fan_icon"
@@ -299,12 +299,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/secondary_bedroom_smart_fan_icon"
                     android:layout_toLeftOf="@id/secondary_bedroom_smart_fan_switch"
+                    android:layout_toRightOf="@id/secondary_bedroom_smart_fan_icon"
                     android:gravity="center"
                     android:text="Smart Fan"
                     android:textColor="@color/primaryColor"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <com.suke.widget.SwitchButton
                     android:id="@+id/secondary_bedroom_smart_fan_switch"
