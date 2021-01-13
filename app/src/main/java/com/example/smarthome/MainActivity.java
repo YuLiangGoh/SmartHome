@@ -466,28 +466,8 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
                         }
                     }).create().show();
         }
-        if(sharedPreferences.getBoolean("temperature_status",false)){
-            new AlertDialog.Builder(this)
-                    .setTitle("Smoke Alert!")
-                    .setMessage("Call the firefighter now !")
-                    .setPositiveButton("Call", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface arg0, int arg1) {
-                            editor.putBoolean("smoke_status",false);
-                            editor.apply();
-                        }
-                    }).create().show();
-        }
-        if(sharedPreferences.getBoolean("humidity_status",false)){
-            new AlertDialog.Builder(this)
-                    .setTitle("Smoke Alert!")
-                    .setMessage("Call the firefighter now !")
-                    .setPositiveButton("Call", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface arg0, int arg1) {
-                            editor.putBoolean("smoke_status",false);
-                            editor.apply();
-                        }
-                    }).create().show();
-        }
+
+
 
     }
 }
