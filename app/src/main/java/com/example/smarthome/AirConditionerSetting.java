@@ -298,6 +298,14 @@ public class AirConditionerSetting extends AppCompatActivity implements TimePick
             timer.getBackground().setTint(getResources().getColor(R.color.grey,getApplication().getTheme()));
             timer_check = false;
         }
+        if(!sharedPreferences.getBoolean("air_con_swing_check",false)){
+            swing.getBackground().setTint(getResources().getColor(R.color.grey,getApplication().getTheme()));
+            swing_check = false;
+        }
+        if(!sharedPreferences.getBoolean("air_con_turbo_check",false)){
+            turbo.getBackground().setTint(getResources().getColor(R.color.grey,getApplication().getTheme()));
+            turbo_check = false;
+        }
         if(!sharedPreferences.getBoolean("air_con_check", false)){
             on_off_button.setChecked(false);
             setAirConViewUnActive();

@@ -19,6 +19,8 @@ public class AlertReceiver extends BroadcastReceiver {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean("air_con_timer_check", false);
         editor.putBoolean("air_con_check",false);
+        editor.putBoolean("air_con_swing_check",false);
+        editor.putBoolean("air_con_turbo_check",false);
         editor.apply();
 
         if(AirConditionerSetting.getInstance()!=null){
