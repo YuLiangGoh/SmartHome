@@ -51,7 +51,7 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
     private SharedPreferences sharedPreferences;
 
 
-    private int NUM_PAGES = 10;
+    private int NUM_PAGES = 9;
     private String TAG = MainActivity.class.getSimpleName();
 
     @Override
@@ -70,7 +70,6 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
         bedroom_primary = findViewById(R.id.main_bedroom_primary);
         bedroom_secondary = findViewById(R.id.main_bedroom_secondary);
         toilet_primary = findViewById(R.id.main_toilet_primary);
-        toilet_secondary = findViewById(R.id.main_toilet_secondary);
         store_room_primary = findViewById(R.id.main_store_room_primary);
         scrollView = findViewById(R.id.main_scroll_view);
         horizontalScrollView = findViewById(R.id.main_horizontal_scroll_view);
@@ -85,8 +84,7 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
         view5 = findViewById(R.id.main_bedroom_primary_view);
         view6 = findViewById(R.id.main_bedroom_secondary_view);
         view7 = findViewById(R.id.main_toilet_primary_view);
-        view8 = findViewById(R.id.main_toilet_secondary_view);
-        view9 = findViewById(R.id.main_store_room_primary_view);
+        view8 = findViewById(R.id.main_store_room_primary_view);
         menu = findViewById(R.id.main_menu);
         drawer = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_item);
@@ -194,18 +192,10 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
                     case 8:
                         clearTextStyle();
                         clearLineView();
-                        toilet_secondary.setTextColor(getResources().getColor(R.color.primaryColor, getApplicationContext().getTheme()));
-                        toilet_secondary.setTypeface(Typeface.DEFAULT_BOLD);
-                        horizontalScrollView.smoothScrollTo((int) linearLayout.getChildAt(8).getX(),0);
-                        view8.getLayoutParams().width =toilet_secondary.getWidth();
-                        break;
-                    case 9:
-                        clearTextStyle();
-                        clearLineView();
                         store_room_primary.setTextColor(getResources().getColor(R.color.primaryColor, getApplicationContext().getTheme()));
                         store_room_primary.setTypeface(Typeface.DEFAULT_BOLD);
-                        horizontalScrollView.smoothScrollTo((int) linearLayout.getChildAt(9).getX(),0);
-                        view9.getLayoutParams().width = store_room_primary.getWidth();
+                        horizontalScrollView.smoothScrollTo((int) linearLayout.getChildAt(8).getX(),0);
+                        view8.getLayoutParams().width = store_room_primary.getWidth();
                         break;
                     default:
                         break;
@@ -313,17 +303,6 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
             }
         });
 
-        toilet_secondary.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clearTextStyle();
-                clearLineView();
-                toilet_secondary.setTextColor(getResources().getColor(R.color.primaryColor, getApplicationContext().getTheme()));
-                toilet_secondary.setTypeface(Typeface.DEFAULT_BOLD);
-                viewPager.setCurrentItem(8,true);
-            }
-        });
-
         store_room_primary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -331,7 +310,7 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
                 clearLineView();
                 store_room_primary.setTextColor(getResources().getColor(R.color.primaryColor, getApplicationContext().getTheme()));
                 store_room_primary.setTypeface(Typeface.DEFAULT_BOLD);
-                viewPager.setCurrentItem(9,true);
+                viewPager.setCurrentItem(8,true);
             }
         });
     }
@@ -389,8 +368,6 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
                 case 7:
                     return new ToiletPrimary();
                 case 8:
-                    return new ToiletSecondary();
-                case 9:
                     return new StoreRoomPrimary();
                 default:
                     return new LivingRoom();
@@ -420,8 +397,6 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
         bedroom_secondary.setTypeface(Typeface.DEFAULT);
         toilet_primary.setTextColor(getResources().getColor(R.color.grey, this.getTheme()));
         toilet_primary.setTypeface(Typeface.DEFAULT);
-        toilet_secondary.setTextColor(getResources().getColor(R.color.grey, this.getTheme()));
-        toilet_secondary.setTypeface(Typeface.DEFAULT);
         store_room_primary.setTextColor(getResources().getColor(R.color.grey, this.getTheme()));
         store_room_primary.setTypeface(Typeface.DEFAULT);
     }
@@ -436,7 +411,6 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
         view6.getLayoutParams().width = 0;
         view7.getLayoutParams().width = 0;
         view8.getLayoutParams().width = 0;
-        view9.getLayoutParams().width = 0;
     }
 
     @Override
