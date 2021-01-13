@@ -84,10 +84,10 @@ public class Sensors extends AppCompatActivity {
 
         if(sharedPreferences.getBoolean("smoke_status",false)){
             smoke_button.setChecked(true);
-            smoke.setText("Smoke detector is activated");
+            smoke.setText("Presence of smoke");
         } else {
             smoke_button.setChecked(false);
-            smoke.setText("Smoke detector is deactivated!");
+            smoke.setText("Absence of smoke");
         }
 
         smoke_button.setOnCheckedChangeListener(new SwitchButton.OnCheckedChangeListener() {
@@ -96,19 +96,19 @@ public class Sensors extends AppCompatActivity {
                 editor.putBoolean("smoke_status",isChecked);
                 editor.apply();
                 if (isChecked){
-                    smoke.setText("Smoke detector is activated");
+                    smoke.setText("Presence of smoke");
                 }else{
-                    smoke.setText("Smoke detector is deactivated!");
+                    smoke.setText("Absence of smoke");
                 }
             }
         });
 
         if(sharedPreferences.getBoolean("gas_status",false)){
             gas_button.setChecked(true);
-            gas.setText("Gas leaking detector is activated");
+            gas.setText("Presence of gas leaking");
         } else {
             gas_button.setChecked(false);
-            gas.setText("Gas leaking detector is deactivated!");
+            gas.setText("Absence of gas leaking");
         }
 
         gas_button.setOnCheckedChangeListener(new SwitchButton.OnCheckedChangeListener() {
@@ -117,22 +117,22 @@ public class Sensors extends AppCompatActivity {
                 editor.putBoolean("smoke_status",isChecked);
                 editor.apply();
                 if (isChecked){
-                    gas.setText("Gas leaking detector is activated");
+                    gas.setText("Presence of gas leaking");
                 }else{
-                    gas.setText("Gas leaking detector is deactivated!");
+                    gas.setText("Absence of gas leaking");
                 }
             }
         });
 
         if(sharedPreferences.getString("current_temp","").equals("")){
-            temperature.setText("nothing");
+            temperature.setText("Current Temperature: ");
         } else {
             String temp = sharedPreferences.getString("current_temp","");
             temperature.setText("Current Temperature: " + temp  + "\u2103");
         }
 
         if(sharedPreferences.getString("current_humid","").equals("")){
-            humidity.setText("nothing");
+            humidity.setText("Current Humidity: ");
         } else {
             String humid = sharedPreferences.getString("current_humid","");
             humidity.setText("Current Humidity: " + humid + "%");

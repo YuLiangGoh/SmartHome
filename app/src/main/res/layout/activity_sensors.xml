@@ -211,7 +211,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/curr_humid"
-                android:hint="    %rh"
+                android:hint="     %"
                 android:layout_alignParentEnd="true"
                 android:inputType="number"/>
 
