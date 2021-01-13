@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="8dp">
+            android:padding="4dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -35,8 +35,8 @@
 
                 <ImageView
                     android:id="@+id/primary_toilet_light_icon"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_centerVertical="true"
                     android:background="@drawable/energy_saving_bulb_icon"
                     />
@@ -72,8 +72,8 @@
 
                 <ImageView
                     android:id="@+id/primary_toilet_vent_icon"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_centerVertical="true"
                     android:background="@drawable/energy_saving_bulb_icon" />
 
@@ -107,8 +107,8 @@
 
                 <ImageView
                     android:id="@+id/primary_toilet_heater_icon"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_centerVertical="true"
                     android:background="@drawable/energy_saving_bulb_icon" />
 
@@ -151,7 +151,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="8dp">
+            android:padding="4dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -167,8 +167,8 @@
 
                 <ImageView
                     android:id="@+id/secondary_toilet_light_icon"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_centerVertical="true"
                     android:background="@drawable/energy_saving_bulb_icon"
                     />
@@ -204,8 +204,8 @@
 
                 <ImageView
                     android:id="@+id/secondary_toilet_vent_icon"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_centerVertical="true"
                     android:background="@drawable/energy_saving_bulb_icon" />
 
@@ -240,8 +240,8 @@
 
                 <ImageView
                     android:id="@+id/secondary_toilet_heater_icon"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_centerVertical="true"
                     android:background="@drawable/energy_saving_bulb_icon" />
 
