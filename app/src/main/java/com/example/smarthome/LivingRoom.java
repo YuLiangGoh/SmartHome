@@ -186,8 +186,7 @@ public class LivingRoom extends Fragment {
                 }
             }
         });
-        sharedPreferencesSensor = getActivity().getSharedPreferences("sensors", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editorSensor = sharedPreferencesSensor.edit();
+
         main_door.setOnCheckedChangeListener(new SwitchButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(SwitchButton view, boolean isChecked) {
@@ -195,19 +194,6 @@ public class LivingRoom extends Fragment {
                 editor.apply();
                 if (isChecked){
                     setMainDoorViewActive();
-                    new AlertDialog.Builder(getContext())
-                            .setTitle("Intruder Alert!")
-                            .setMessage("The door is opened now. Lock it now!")
-                            .setPositiveButton("Lock now !", new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface arg0, int arg1) {
-//                                    editorSensor.putBoolean("door_status",false);
-//                                    editorSensor.apply();
-                                    editor.putBoolean("main_door_check",false);
-                                    editor.apply();
-                                    setMainDoorViewUnActive();
-                                    main_door.setChecked(false);
-                                }
-                            }).create().show();
                 }else{
                     setMainDoorViewUnActive();
                 }
@@ -463,10 +449,11 @@ public class LivingRoom extends Fragment {
 
         sharedPreferencesSensor = getActivity().getSharedPreferences("sensors", Context.MODE_PRIVATE);
         SharedPreferences.Editor editorSensor = sharedPreferencesSensor.edit();
-        if(sharedPreferencesSensor.getBoolean("door_status",false)){
+        if(sharedPreferencesSensor.getBoolean("door_status",false) && sharedPreferences.getBoolean("main_door_check",false)){
             new AlertDialog.Builder(getContext())
                     .setTitle("Intruder Alert!")
                     .setMessage("The door is opened. Lock it now !")
+                    .setCancelable(false)
                     .setPositiveButton("Lock now !", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface arg0, int arg1) {
                             editorSensor.putBoolean("door_status",false);
@@ -475,6 +462,19 @@ public class LivingRoom extends Fragment {
                             editor.apply();
                             setMainDoorViewUnActive();
                             main_door.setChecked(false);
+                        }
+                    }).create().show();
+        }else if(sharedPreferencesSensor.getBoolean("door_status",false) && !sharedPreferences.getBoolean("main_door_check",false)){
+            new AlertDialog.Builder(getContext())
+                    .setTitle("Intruder Alert!")
+                    .setMessage("The door is opened. Lock it now !")
+                    .setCancelable(false)
+                    .setPositiveButton("Lock now !", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface arg0, int arg1) {
+                            editorSensor.putBoolean("door_status",false);
+                            editorSensor.apply();
+                            editor.putBoolean("main_door_check",false);
+                            editor.apply();
                         }
                     }).create().show();
         }
