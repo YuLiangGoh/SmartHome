@@ -405,7 +405,7 @@
                                 android:id="@+id/main_store_room_primary"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Store Room Primary"
+                                android:text="Store Room"
                                 android:textColor="@color/grey"
                                 android:layout_marginEnd="16dp"/>
 
