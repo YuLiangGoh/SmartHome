@@ -27,11 +27,12 @@ import org.w3c.dom.Text;
 
 public class Sensors extends AppCompatActivity {
 
-    private TextView door, smoke, gas, temperature, humidity;
+    private TextView door, smoke, gas, temperature, humidity, tempDesc, humidDesc;
     private SwitchButton door_button, smoke_button, gas_button;
     private ImageView back;
     private SharedPreferences sharedPreferences;
     private EditText currTemp, currHumid;
+    private String TAG = Sensors.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +50,10 @@ public class Sensors extends AppCompatActivity {
         gas_button = findViewById(R.id.gas_button);
         currTemp = findViewById(R.id.curr_temp);
         currHumid = findViewById(R.id.curr_humid);
+        tempDesc = findViewById(R.id.temperature_desc);
+        humidDesc = findViewById(R.id.humidity_desc);
         back = findViewById(R.id.sensor_back);
+
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,7 +118,7 @@ public class Sensors extends AppCompatActivity {
         gas_button.setOnCheckedChangeListener(new SwitchButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(SwitchButton view, boolean isChecked) {
-                editor.putBoolean("smoke_status",isChecked);
+                editor.putBoolean("gas_status",isChecked);
                 editor.apply();
                 if (isChecked){
                     gas.setText("Presence of gas leaking");
@@ -130,6 +134,12 @@ public class Sensors extends AppCompatActivity {
             String temp = sharedPreferences.getString("current_temp","");
             temperature.setText("Current Temperature: " + temp  + "\u2103");
         }
+        if (sharedPreferences.getString("level_temp", "").equals("")) {
+            tempDesc.setText("null");
+        } else{
+            String temp_level = sharedPreferences.getString("level_temp","");
+            tempDesc.setText(temp_level);
+        }
 
         if(sharedPreferences.getString("current_humid","").equals("")){
             humidity.setText("Current Humidity: ");
@@ -137,6 +147,13 @@ public class Sensors extends AppCompatActivity {
             String humid = sharedPreferences.getString("current_humid","");
             humidity.setText("Current Humidity: " + humid + "%");
         }
+        if (sharedPreferences.getString("level_humid", "").equals("")) {
+            humidDesc.setText("null");
+        } else{
+            String humid_level = sharedPreferences.getString("level_humid","");
+            humidDesc.setText(humid_level);
+        }
+
 
         currTemp.addTextChangedListener(new TextWatcher() {
             @Override
@@ -151,9 +168,35 @@ public class Sensors extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                editor.putString("current_temp",s.toString());
-                editor.apply();
-                temperature.setText("Current Temperature: " + s.toString() + "\u2103");
+
+                if(!s.toString().matches("")){
+                    if(Integer.parseInt(s.toString())>=32){
+                        editor.putString("current_temp",s.toString());
+                        temperature.setText("Current Temperature: " + s.toString() + "\u2103");
+                        editor.putString("level_temp","Hot");
+                        tempDesc.setText("Hot");
+                        editor.apply();
+                        Log.d(TAG, "afterTextChanged: hot");
+                    } else if(Integer.parseInt(s.toString()) <32 && Integer.parseInt(s.toString()) >=16) {
+                        editor.putString("current_temp",s.toString());
+                        temperature.setText("Current Temperature: " + s.toString() + "\u2103");
+                        editor.putString("level_temp","Average");
+                        tempDesc.setText("Average");
+                        editor.apply();
+                        Log.d(TAG, "afterTextChanged: average");
+                    }
+                    else if( Integer.parseInt(s.toString()) <16){
+                        editor.putString("current_temp",s.toString());
+                        temperature.setText("Current Temperature: " + s.toString() + "\u2103");
+                        editor.putString("level_temp","Cold");
+                        tempDesc.setText("Cold");
+                        editor.apply();
+                        Log.d(TAG, "afterTextChanged: Cold");
+                    }
+                }
+                else {
+                    return;
+                }
             }
         });
         currHumid.addTextChangedListener(new TextWatcher() {
@@ -169,9 +212,34 @@ public class Sensors extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                editor.putString("current_humid",s.toString());
-                editor.apply();
-                humidity.setText("Current Humidity: " + s.toString() + "%");
+                if(!s.toString().matches("")){
+                    if(Integer.parseInt(s.toString())>=50){
+                        editor.putString("current_humid",s.toString());
+                        humidity.setText("Current Temperature: " + s.toString() + "\u2103");
+                        editor.putString("level_humid","High");
+                        humidDesc.setText("High");
+                        editor.apply();
+                        Log.d(TAG, "afterTextChanged: high");
+                    } else if(Integer.parseInt(s.toString()) <50 && Integer.parseInt(s.toString()) >=30) {
+                        editor.putString("current_humid",s.toString());
+                        humidity.setText("Current Temperature: " + s.toString() + "\u2103");
+                        editor.putString("level_humid","Average");
+                        humidDesc.setText("Average");
+                        editor.apply();
+                        Log.d(TAG, "afterTextChanged: average");
+                    }
+                    else if( Integer.parseInt(s.toString()) <30){
+                        editor.putString("current_humid",s.toString());
+                        humidity.setText("Current Temperature: " + s.toString() + "\u2103");
+                        editor.putString("level_humid","Low");
+                        humidDesc.setText("Low");
+                        editor.apply();
+                        Log.d(TAG, "afterTextChanged: low");
+                    }
+                }
+                else {
+                    return;
+                }
             }
         });
 
