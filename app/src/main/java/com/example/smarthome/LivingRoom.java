@@ -35,10 +35,10 @@ import com.suke.widget.SwitchButton;
 public class LivingRoom extends Fragment {
 
     private Button setting;
-    private SwitchButton air_con, smart_light, smart_tv;
-    private ImageView air_con_icon, smart_light_icon, smart_tv_icon;
+    private SwitchButton air_con, smart_light, smart_tv,main_door;
+    private ImageView air_con_icon, smart_light_icon, smart_tv_icon,main_door_icon;
     private RelativeLayout degree, swing, timer, turbo;
-    private TextView air_con_title,smart_light_title,smart_tv_title,temperature;
+    private TextView air_con_title,smart_light_title,smart_tv_title,temperature,main_door_title;
     private SharedPreferences sharedPreferences;
     
     private String TAG = LivingRoom.class.getSimpleName();
@@ -64,9 +64,11 @@ public class LivingRoom extends Fragment {
         air_con = rootView.findViewById(R.id.living_room_air_con_switch);
         smart_light = rootView.findViewById(R.id.living_room_smart_light_switch);
         smart_tv = rootView.findViewById(R.id.living_room_smart_tv_switch);
+        main_door = rootView.findViewById(R.id.living_room_main_door_switch);
         air_con_icon = rootView.findViewById(R.id.living_room_air_con_icon);
         smart_light_icon = rootView.findViewById(R.id.living_room_smart_light_icon);
         smart_tv_icon = rootView.findViewById(R.id.living_room_smart_tv_icon);
+        main_door_icon = rootView.findViewById(R.id.living_room_main_door_icon);
         degree = rootView.findViewById(R.id.living_room_temperature_title);
         swing = rootView.findViewById(R.id.living_room_swing_title);
         turbo = rootView.findViewById(R.id.living_room_turbo_title);
@@ -74,12 +76,14 @@ public class LivingRoom extends Fragment {
         air_con_title = rootView.findViewById(R.id.living_room_air_con_title);
         smart_light_title = rootView.findViewById(R.id.living_room_smart_light_title);
         smart_tv_title = rootView.findViewById(R.id.living_room_smart_tv_title);
+        main_door_title = rootView.findViewById(R.id.living_room_main_door_title);
         temperature = rootView.findViewById(R.id.living_room_temperature);
 
         //pre new setting
         setAirConViewUnActive();
         setSmartLightViewUnActive();
         setSmartTvViewUnActive();
+        setMainDoorViewUnActive();
 
         //get history setting
         sharedPreferences = getActivity().getSharedPreferences("Living_Room", Context.MODE_PRIVATE);
@@ -95,6 +99,10 @@ public class LivingRoom extends Fragment {
         smart_tv.setChecked(sharedPreferences.getBoolean("smart_tv_check",false));
         if(sharedPreferences.getBoolean("smart_tv_check", false)){
             setSmartTvViewActive();
+        }
+        main_door.setChecked(sharedPreferences.getBoolean("main_door_check",false));
+        if(sharedPreferences.getBoolean("main_door_check", false)){
+            setMainDoorViewActive();
         }
         if(sharedPreferences.getString("temperature","").equals("")){
             final Handler handler = new Handler(Looper.getMainLooper());
@@ -176,7 +184,50 @@ public class LivingRoom extends Fragment {
             }
         });
 
+        main_door.setOnCheckedChangeListener(new SwitchButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(SwitchButton view, boolean isChecked) {
+                editor.putBoolean("main_door_check", isChecked);
+                editor.apply();
+                if (isChecked){
+                    setMainDoorViewActive();
+                }else{
+                    setMainDoorViewUnActive();
+                }
+            }
+        });
+
         return  rootView;
+    }
+
+    private void setMainDoorViewActive() {
+        main_door_icon.setAlpha(0.25f);
+        main_door_icon.setVisibility(View.VISIBLE);
+        main_door_icon.animate()
+                .alpha(1f)
+                .setDuration(400)
+                .setListener(null);
+
+        main_door_title.setAlpha(0.25f);
+        main_door_title.setVisibility(View.VISIBLE);
+        main_door_title.animate()
+                .alpha(1f)
+                .setDuration(400)
+                .setListener(null);
+    }
+
+    private void setMainDoorViewUnActive(){
+        main_door_icon.setAlpha(1f);
+        main_door_icon.animate()
+                .alpha(0.25f)
+                .setDuration(400)
+                .setListener(null);
+
+        main_door_title.setAlpha(1f);
+        main_door_title.animate()
+                .alpha(0.25f)
+                .setDuration(400)
+                .setListener(null);
     }
 
     private void setAirConViewUnActive(){
