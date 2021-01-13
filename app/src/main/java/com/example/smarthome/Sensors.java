@@ -30,7 +30,7 @@ public class Sensors extends AppCompatActivity {
     private TextView door, smoke, gas, temperature, humidity, tempDesc, humidDesc;
     private SwitchButton door_button, smoke_button, gas_button;
     private ImageView back;
-    private SharedPreferences sharedPreferences;
+    private SharedPreferences sharedPreferences,sharedPreferencesLivingRoom;
     private EditText currTemp, currHumid;
     private String TAG = Sensors.class.getSimpleName();
 
@@ -65,7 +65,10 @@ public class Sensors extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("sensors", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        if(sharedPreferences.getBoolean("door_status",false)){
+        sharedPreferencesLivingRoom = getSharedPreferences("Living_Room", Context.MODE_PRIVATE);
+        Log.d(TAG, "onCreate: "+sharedPreferencesLivingRoom.getBoolean("main_door_check",false));
+
+        if(sharedPreferences.getBoolean("door_status",false) | sharedPreferencesLivingRoom.getBoolean("main_door_check",false)){
             door_button.setChecked(true);
             door.setText("Door is unlocked");
         } else {
