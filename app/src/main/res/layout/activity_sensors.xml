@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Sensors"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/sensor_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/back_icon"
+            android:backgroundTint="@color/primaryColor" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sensors"
+            android:textSize="18sp"
+            android:textColor="@color/primaryColor"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_marginStart="18dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="50dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="24dp">
+
+            <ImageView
+                android:id="@+id/door_icon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/door_icon"
+                android:layout_alignParentStart="true" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/door"
+                android:text="Door"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:layout_centerVertical="true"
+                android:textAlignment="center"
+                android:layout_toLeftOf="@+id/door_button"
+                android:layout_toRightOf="@+id/door_icon"/>
+
+            <com.suke.widget.SwitchButton
+                android:id="@+id/door_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:sb_checked_color="@color/primaryColor"
+                android:layout_centerVertical="true"
+                android:textAlignment="center"
+                android:layout_alignParentEnd="true"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="24dp">
+
+            <ImageView
+                android:id="@+id/smoke_icon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/no_smoking_icon"
+                android:layout_alignParentStart="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/smoke"
+                android:text="Smoke"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:layout_centerVertical="true"
+                android:textAlignment="center"
+                android:layout_toLeftOf="@+id/smoke_button"
+                android:layout_toRightOf="@+id/smoke_icon"/>
+
+            <com.suke.widget.SwitchButton
+                android:id="@+id/smoke_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:sb_checked_color="@color/primaryColor"
+                android:layout_centerVertical="true"
+                android:textAlignment="center"
+                android:layout_alignParentEnd="true"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="24dp">
+
+            <ImageView
+                android:id="@+id/gas_icon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/burner_icon"
+                android:layout_alignParentStart="true"
+                />
+
+            <TextView
+                android:id="@+id/gas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gas"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:layout_centerVertical="true"
+                android:textAlignment="center"
+                android:layout_toLeftOf="@id/gas_button"
+                android:layout_toRightOf="@id/gas_icon"/>
+            <com.suke.widget.SwitchButton
+                android:id="@+id/gas_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textAlignment="center"
+                android:layout_alignParentEnd="true"
+                app:sb_checked_color="@color/primaryColor"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="24dp">
+
+            <ImageView
+                android:id="@+id/temperature_icon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/temperature_icon"
+                android:layout_alignParentStart="true"/>
+
+            <TextView
+                android:id="@+id/temperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Current Temperature"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:layout_centerVertical="true"
+                android:textAlignment="center"
+                android:layout_toRightOf="@id/temperature_icon"
+                android:layout_toLeftOf="@+id/curr_temp"/>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/curr_temp"
+                android:hint="     ℃"
+                android:layout_alignParentEnd="true"
+                android:inputType="number"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="24dp">
+
+            <ImageView
+                android:id="@+id/humidity_icon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/water_icon"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:id="@+id/humidity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Current Humidity"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/humidity_icon"
+                android:layout_toLeftOf="@+id/curr_humid"/>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/curr_humid"
+                android:hint="    %rh"
+                android:layout_alignParentEnd="true"
+                android:inputType="number"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

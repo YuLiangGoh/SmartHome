@@ -1,0 +1,189 @@
+package com.example.smarthome;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.suke.widget.SwitchButton;
+
+import org.w3c.dom.Text;
+
+public class Sensors extends AppCompatActivity {
+
+    private TextView door, smoke, gas, temperature, humidity;
+    private SwitchButton door_button, smoke_button, gas_button;
+    private ImageView back;
+    private SharedPreferences sharedPreferences;
+    private EditText currTemp, currHumid;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_sensors);
+
+        door = findViewById(R.id.door);
+        smoke = findViewById(R.id.smoke);
+        gas = findViewById(R.id.gas);
+        temperature = findViewById(R.id.temperature);
+        humidity = findViewById(R.id.humidity);
+        door_button = findViewById(R.id.door_button);
+        smoke_button = findViewById(R.id.smoke_button);
+        gas_button = findViewById(R.id.gas_button);
+        currTemp = findViewById(R.id.curr_temp);
+        currHumid = findViewById(R.id.curr_humid);
+        back = findViewById(R.id.sensor_back);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
+        sharedPreferences = getSharedPreferences("sensors", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        if(sharedPreferences.getBoolean("door_status",false)){
+            door_button.setChecked(true);
+            door.setText("Door is locked");
+        } else {
+            door_button.setChecked(false);
+            door.setText("Door is unlocked!");
+        }
+
+        door_button.setOnCheckedChangeListener(new SwitchButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(SwitchButton view, boolean isChecked) {
+                editor.putBoolean("door_status",isChecked);
+                editor.apply();
+                if (isChecked){
+                    door.setText("Door is locked");
+                }else{
+                    door.setText("Door is unlocked");
+                }
+            }
+        });
+
+        if(sharedPreferences.getBoolean("smoke_status",false)){
+            smoke_button.setChecked(true);
+            smoke.setText("Smoke detector is activated");
+        } else {
+            smoke_button.setChecked(false);
+            smoke.setText("Smoke detector is deactivated!");
+        }
+
+        smoke_button.setOnCheckedChangeListener(new SwitchButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(SwitchButton view, boolean isChecked) {
+                editor.putBoolean("smoke_status",isChecked);
+                editor.apply();
+                if (isChecked){
+                    smoke.setText("Smoke detector is activated");
+                }else{
+                    smoke.setText("Smoke detector is deactivated!");
+                }
+            }
+        });
+
+        if(sharedPreferences.getBoolean("gas_status",false)){
+            gas_button.setChecked(true);
+            gas.setText("Gas leaking detector is activated");
+        } else {
+            gas_button.setChecked(false);
+            gas.setText("Gas leaking detector is deactivated!");
+        }
+
+        gas_button.setOnCheckedChangeListener(new SwitchButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(SwitchButton view, boolean isChecked) {
+                editor.putBoolean("smoke_status",isChecked);
+                editor.apply();
+                if (isChecked){
+                    gas.setText("Gas leaking detector is activated");
+                }else{
+                    gas.setText("Gas leaking detector is deactivated!");
+                }
+            }
+        });
+
+        if(sharedPreferences.getString("current_temp","").equals("")){
+            temperature.setText("nothing");
+        } else {
+            String temp = sharedPreferences.getString("current_temp","");
+            temperature.setText("Current Temperature: " + temp  + "\u2103");
+        }
+
+        if(sharedPreferences.getString("current_humid","").equals("")){
+            humidity.setText("nothing");
+        } else {
+            String humid = sharedPreferences.getString("current_humid","");
+            humidity.setText("Current Humidity: " + humid + "%");
+        }
+
+        currTemp.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                editor.putString("current_temp",s.toString());
+                editor.apply();
+                temperature.setText("Current Temperature: " + s.toString() + "\u2103");
+            }
+        });
+        currHumid.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                editor.putString("current_humid",s.toString());
+                editor.apply();
+                humidity.setText("Current Humidity: " + s.toString() + "%");
+            }
+        });
+
+    }
+
+
+
+
+
+//    @Override
+//    public void onBackPressed() {
+//        super.onBackPressed();
+//        Intent intent = new Intent(this,MainActivity.class);
+//        startActivity(intent);
+////      setResult(Activity.RESULT_CANCELED,intent);
+//        finish();
+//    }
+
+
+
+
+}

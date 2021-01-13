@@ -1,5 +1,7 @@
 package com.example.smarthome;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -10,14 +12,15 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import android.content.Context;
+import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -29,9 +32,9 @@ import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 
-import java.util.ArrayList;
+import static android.view.View.GONE;
 
-public class MainActivity extends FragmentActivity{
+public class MainActivity extends FragmentActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private TextView name,welcome_message;
     private TextView living_room, kitchen, dining_room, laundry_room, balcony, bedroom_primary, bedroom_secondary, toilet_primary, toilet_secondary, store_room_primary, store_room_secondary;
@@ -88,6 +91,7 @@ public class MainActivity extends FragmentActivity{
         menu = findViewById(R.id.main_menu);
         drawer = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_item);
+        navigationView.setNavigationItemSelectedListener(this);
 
         //set Username
         name.setText("Thomas Oliver");
@@ -352,6 +356,34 @@ public class MainActivity extends FragmentActivity{
         });
 
     }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        // Handle navigation view item clicks here.
+        switch (item.getItemId()) {
+
+            case R.id.door: {
+                  Intent intent = new Intent(this, Sensors.class);
+                  startActivity(intent);
+//                navigationView.setVisibility(GONE);
+//                finish();
+                break;
+            }
+        }
+        //close navigation drawer
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if (requestCode == 1){
+//            if (resultCode == Activity.RESULT_CANCELED){
+//                navigationView.setVisibility(View.VISIBLE);
+//            }
+//        }
+//    }
 
     private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
         public ScreenSlidePagerAdapter(FragmentManager fm) {
