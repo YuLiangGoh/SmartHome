@@ -194,15 +194,7 @@ public class Sensors extends AppCompatActivity {
         }
         return super.dispatchTouchEvent( event );
     }
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
-    public void onAppBackgrounded() {
-        //App in background
-    }
-
-
-
-
+    
 
 //    @Override
 //    public void onBackPressed() {
