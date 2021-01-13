@@ -466,5 +466,16 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
                         }
                     }).create().show();
         }
+        if(sharedPreferences.getBoolean("laundry_ready", false)){
+            new AlertDialog.Builder(this)
+                    .setTitle("Laundry Finished!")
+                    .setMessage("Your laundry is done!")
+                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface arg0, int arg1) {
+                            editor.putBoolean("laundry_ready",false);
+                            editor.apply();
+                        }
+                    }).create().show();
+        }
     }
 }

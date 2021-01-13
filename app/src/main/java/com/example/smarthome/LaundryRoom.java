@@ -30,8 +30,8 @@ public class LaundryRoom extends Fragment {
         laundrySwitch = rootView.findViewById(R.id.laundry_switch);
         timer = rootView.findViewById(R.id.timer);
 
-        //sharedPreferences = getActivity().getSharedPreferences("Laundry_Room", Context.MODE_PRIVATE);
-        //SharedPreferences.Editor editor = sharedPreferences.edit();
+//        sharedPreferences = getActivity().getSharedPreferences("Laundry_Room", Context.MODE_PRIVATE);
+//        SharedPreferences.Editor editor = sharedPreferences.edit();
 
         laundrySwitch.setOnCheckedChangeListener(new SwitchButton.OnCheckedChangeListener() {
 
@@ -40,14 +40,13 @@ public class LaundryRoom extends Fragment {
                 @Override
                 public void onTick(long millisUntilFinished) {
                     double time_left = millisUntilFinished/1000+1;
-                    timer.setText("remaining time: " + time_left);
+                    timer.setText("Remaining time: " + time_left);
                 }
 
                 @Override
                 public void onFinish() {
-                    //editor.putBoolean("laundry_ready", laundry_done);
-                    //editor.apply();
-                    timer.setText("laundry is ready!");
+
+                    timer.setText("Laundry is ready!");
                 }
             };
 
