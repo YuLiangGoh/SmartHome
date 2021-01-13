@@ -36,7 +36,7 @@
                     android:padding="8dp">
 
                     <ImageView
-                        android:id="@+id/living_room_air_con_icon"
+                        android:id="@+id/secondary_bedroom_air_con_icon"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_centerVertical="true"
@@ -45,7 +45,7 @@
                         />
 
                     <com.suke.widget.SwitchButton
-                        android:id="@+id/living_room_air_con_switch"
+                        android:id="@+id/secondary_bedroom_air_con_switch"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
@@ -59,7 +59,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/living_room_air_con_title"
+                        android:id="@+id/secondary_bedroom_air_con_title"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="Daikin Air Conditioner"
@@ -71,7 +71,7 @@
                         />
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/living_room_outlinedButton_setting"
+                        android:id="@+id/secondary_bedroom_outlinedButton_setting"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Setting"
@@ -88,14 +88,14 @@
                         />
 
                     <RelativeLayout
-                        android:id="@+id/living_room_temperature_title"
+                        android:id="@+id/secondary_bedroom_temperature_title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:layout_marginTop="24dp">
 
                         <TextView
-                            android:id="@+id/living_room_temperature"
+                            android:id="@+id/secondary_bedroom_temperature"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_toStartOf="@+id/main_thermometer_icon"
@@ -118,7 +118,7 @@
                     </RelativeLayout>
 
                     <RelativeLayout
-                        android:id="@+id/living_room_swing_title"
+                        android:id="@+id/secondary_bedroom_swing_title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
@@ -147,7 +147,7 @@
                     </RelativeLayout>
 
                     <RelativeLayout
-                        android:id="@+id/living_room_timer_title"
+                        android:id="@+id/secondary_bedroom_timer_title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
@@ -184,9 +184,6 @@
 
     </LinearLayout>
 
-
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -201,51 +198,38 @@
             app:cardCornerRadius="8dp"
             android:id="@+id/light_card">
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:padding="8dp"
-                >
+                android:layout_height="wrap_content"
+                android:padding="10dp">
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp">
+                <ImageView
+                    android:id="@+id/secondary_bedroom_smart_light_icon"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/energy_saving_bulb_icon"
+                    />
 
-                    <ImageView
-                        android:id="@+id/living_room_smart_light_icon"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_centerVertical="true"
-                        android:background="@drawable/energy_saving_bulb_icon"
-                        />
-
-                    <com.suke.widget.SwitchButton
-                        android:id="@+id/living_room_smart_light_switch"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        app:sb_checked_color="@color/primaryColor" />
-                </RelativeLayout>
-
-                <LinearLayout
+                <TextView
+                    android:id="@+id/secondary_bedroom_smart_light_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:padding="10dp">
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/secondary_bedroom_smart_light_icon"
+                    android:layout_toLeftOf="@id/secondary_bedroom_smart_light_switch"
+                    android:gravity="center"
+                    android:text="Smart Light"
+                    android:textColor="@color/primaryColor"
+                    android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/living_room_smart_light_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Smart Light"
-                        android:textColor="@color/primaryColor"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-            </LinearLayout>
+                <com.suke.widget.SwitchButton
+                    android:id="@+id/secondary_bedroom_smart_light_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    app:sb_checked_color="@color/primaryColor" />
+            </RelativeLayout>
 
         </androidx.cardview.widget.CardView>
 
@@ -256,50 +240,80 @@
             app:cardElevation="0dp"
             app:cardCornerRadius="8dp">
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="8dp">
+                android:padding="10dp">
 
-                <RelativeLayout
+                <ImageView
+                    android:id="@+id/secondary_bedroom_smart_tv_icon"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/tv_icon"
+                    />
+
+                <TextView
+                    android:id="@+id/secondary_bedroom_smart_tv_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="8dp"
-                    android:orientation="horizontal">
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/secondary_bedroom_smart_tv_icon"
+                    android:layout_toLeftOf="@id/secondary_bedroom_smart_tv_switch"
+                    android:gravity="center"
+                    android:text="Smart TV"
+                    android:textColor="@color/primaryColor"
+                    android:textStyle="bold"/>
 
-                    <ImageView
-                        android:id="@+id/living_room_smart_tv_icon"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:background="@drawable/tv_icon"
-                        />
-
-                    <com.suke.widget.SwitchButton
-                        android:id="@+id/living_room_smart_tv_switch"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        app:sb_checked_color="@color/primaryColor" />
-
-                </RelativeLayout>
-
-                <LinearLayout
+                <com.suke.widget.SwitchButton
+                    android:id="@+id/secondary_bedroom_smart_tv_switch"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:padding="5dp">
+                    android:layout_alignParentEnd="true"
+                    app:sb_checked_color="@color/primaryColor" />
 
-                    <TextView
-                        android:id="@+id/living_room_smart_tv_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Smart TV"
-                        android:textColor="@color/primaryColor"
-                        android:textStyle="bold"/>
-                </LinearLayout>
+            </RelativeLayout>
 
-            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:cardElevation="0dp"
+            app:cardCornerRadius="8dp"
+            android:id="@+id/fan_card">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
+
+                <ImageView
+                    android:id="@+id/secondary_bedroom_smart_fan_icon"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/vent_icon" />
+
+                <TextView
+                    android:id="@+id/secondary_bedroom_smart_fan_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/secondary_bedroom_smart_fan_icon"
+                    android:layout_toLeftOf="@id/secondary_bedroom_smart_fan_switch"
+                    android:gravity="center"
+                    android:text="Smart Fan"
+                    android:textColor="@color/primaryColor"
+                    android:textStyle="bold"/>
+
+                <com.suke.widget.SwitchButton
+                    android:id="@+id/secondary_bedroom_smart_fan_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    app:sb_checked_color="@color/primaryColor" />
+
+            </RelativeLayout>
 
         </androidx.cardview.widget.CardView>
 

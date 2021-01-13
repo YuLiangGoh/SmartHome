@@ -79,7 +79,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_centerVertical="true"
-                    android:background="@drawable/vent_icon" />
+                    android:background="@drawable/ventilation_icon" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -215,7 +215,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_centerVertical="true"
-                    android:background="@drawable/vent_icon" />
+                    android:background="@drawable/ventilation_icon" />
 
                 <TextView
                     android:layout_width="match_parent"

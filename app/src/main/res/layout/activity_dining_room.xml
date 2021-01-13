@@ -66,7 +66,7 @@
                         android:id="@+id/dining_room_smart_tv_icon"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/tv_icon"
+                        android:background="@drawable/vent_icon"
                         />
 
                     <TextView

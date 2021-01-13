@@ -76,7 +76,7 @@
                         android:id="@+id/kitchen_vent_icon"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/tv_icon"
+                        android:background="@drawable/ventilation_icon"
                         />
 
                     <TextView
