@@ -156,8 +156,8 @@
             app:cardCornerRadius="8dp">
 
             <LinearLayout
-                android:layout_width="197dp"
-                android:layout_height="194dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="8dp">
 
@@ -181,7 +181,8 @@
                         android:layout_centerVertical="true"
                         android:layout_toLeftOf="@id/oven_switch"
                         android:layout_toRightOf="@id/oven_icon"
-                        android:text="Smart \nOven"
+                        android:gravity="center"
+                        android:text="Oven"
                         android:textAlignment="center"
                         android:textColor="@color/primaryColor"
                         android:textSize="14sp"
