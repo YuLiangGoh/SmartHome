@@ -63,10 +63,10 @@ public class Sensors extends AppCompatActivity {
 
         if(sharedPreferences.getBoolean("door_status",false)){
             door_button.setChecked(true);
-            door.setText("Door is locked");
+            door.setText("Door is unlocked");
         } else {
             door_button.setChecked(false);
-            door.setText("Door is unlocked!");
+            door.setText("Door is locked");
         }
 
         door_button.setOnCheckedChangeListener(new SwitchButton.OnCheckedChangeListener() {
@@ -75,9 +75,9 @@ public class Sensors extends AppCompatActivity {
                 editor.putBoolean("door_status",isChecked);
                 editor.apply();
                 if (isChecked){
-                    door.setText("Door is locked");
-                }else{
                     door.setText("Door is unlocked");
+                }else{
+                    door.setText("Door is locked");
                 }
             }
         });

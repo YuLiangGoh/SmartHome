@@ -13,6 +13,7 @@ import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -451,6 +452,22 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
                 }).create().show();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        sharedPreferences = getSharedPreferences("sensors", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        if(sharedPreferences.getBoolean("door_status",false)){
+            new AlertDialog.Builder(this)
+                    .setTitle("Intruder Alert!")
+                    .setMessage("Door will be locked immediately.")
+                    .setPositiveButton("Lock now !", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface arg0, int arg1) {
+                            editor.putBoolean("door_status",false);
+                            editor.apply();
+                        }
+                    }).create().show();
+        }
 
-
+    }
 }
