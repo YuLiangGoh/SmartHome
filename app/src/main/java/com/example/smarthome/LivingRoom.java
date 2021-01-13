@@ -464,6 +464,19 @@ public class LivingRoom extends Fragment {
                             main_door.setChecked(false);
                         }
                     }).create().show();
+        }else if(sharedPreferencesSensor.getBoolean("door_status",false) && !sharedPreferences.getBoolean("main_door_check",false)){
+            new AlertDialog.Builder(getContext())
+                    .setTitle("Intruder Alert!")
+                    .setMessage("The door is opened. Lock it now !")
+                    .setCancelable(false)
+                    .setPositiveButton("Lock now !", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface arg0, int arg1) {
+                            editorSensor.putBoolean("door_status",false);
+                            editorSensor.apply();
+                            editor.putBoolean("main_door_check",false);
+                            editor.apply();
+                        }
+                    }).create().show();
         }
     }
 
