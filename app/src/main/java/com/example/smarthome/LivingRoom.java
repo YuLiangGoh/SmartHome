@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.SwitchCompat;
+import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.core.widget.ImageViewCompat;
 import androidx.fragment.app.Fragment;
@@ -31,6 +32,7 @@ import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.google.android.material.card.MaterialCardView;
 import com.suke.widget.SwitchButton;
 
 
@@ -42,6 +44,7 @@ public class LivingRoom extends Fragment {
     private RelativeLayout degree, swing, timer, turbo;
     private TextView air_con_title,smart_light_title,smart_tv_title,temperature,main_door_title;
     private SharedPreferences sharedPreferences, sharedPreferencesSensor;
+    private CardView main_door_card;
     
     private String TAG = LivingRoom.class.getSimpleName();
 
@@ -80,6 +83,7 @@ public class LivingRoom extends Fragment {
         smart_tv_title = rootView.findViewById(R.id.living_room_smart_tv_title);
         main_door_title = rootView.findViewById(R.id.living_room_main_door_title);
         temperature = rootView.findViewById(R.id.living_room_temperature);
+        main_door_card = rootView.findViewById(R.id.living_room_main_door_card);
 
         //pre new setting
         setAirConViewUnActive();
@@ -449,22 +453,7 @@ public class LivingRoom extends Fragment {
 
         sharedPreferencesSensor = getActivity().getSharedPreferences("sensors", Context.MODE_PRIVATE);
         SharedPreferences.Editor editorSensor = sharedPreferencesSensor.edit();
-        if(sharedPreferencesSensor.getBoolean("door_status",false) && sharedPreferences.getBoolean("main_door_check",false)){
-            new AlertDialog.Builder(getContext())
-                    .setTitle("Intruder Alert!")
-                    .setMessage("The door is opened. Contact police and lock the door!")
-                    .setCancelable(false)
-                    .setPositiveButton("Lock now !", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface arg0, int arg1) {
-                            editorSensor.putBoolean("door_status",false);
-                            editorSensor.apply();
-                            editor.putBoolean("main_door_check",false);
-                            editor.apply();
-                            setMainDoorViewUnActive();
-                            main_door.setChecked(false);
-                        }
-                    }).create().show();
-        }else if(sharedPreferencesSensor.getBoolean("door_status",false) && !sharedPreferences.getBoolean("main_door_check",false)){
+        if(sharedPreferencesSensor.getBoolean("door_status",false) && !sharedPreferences.getBoolean("main_door_check",false)){
             new AlertDialog.Builder(getContext())
                     .setTitle("Intruder Alert!")
                     .setMessage("The door is opened. Contact police and lock the door!")
