@@ -82,6 +82,8 @@ public class AirConditionerSetting extends AppCompatActivity implements TimePick
 
         if(sharedPreferences.getString("temperature","").equals("")){
             croller.setLabel("16 \u2103");
+            editor.putString("temperature",String.valueOf(croller.getProgress() + 15));
+            editor.apply();
         }else{
             String temp = sharedPreferences.getString("temperature","");
             croller.setLabel( temp + " \u2103");
