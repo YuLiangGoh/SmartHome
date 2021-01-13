@@ -452,7 +452,7 @@ public class LivingRoom extends Fragment {
         if(sharedPreferencesSensor.getBoolean("door_status",false) && sharedPreferences.getBoolean("main_door_check",false)){
             new AlertDialog.Builder(getContext())
                     .setTitle("Intruder Alert!")
-                    .setMessage("The door is opened. Lock it now !")
+                    .setMessage("The door is opened. Contact police and lock the door!")
                     .setCancelable(false)
                     .setPositiveButton("Lock now !", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface arg0, int arg1) {
@@ -467,9 +467,9 @@ public class LivingRoom extends Fragment {
         }else if(sharedPreferencesSensor.getBoolean("door_status",false) && !sharedPreferences.getBoolean("main_door_check",false)){
             new AlertDialog.Builder(getContext())
                     .setTitle("Intruder Alert!")
-                    .setMessage("The door is opened. Lock it now !")
+                    .setMessage("The door is opened. Contact police and lock the door!")
                     .setCancelable(false)
-                    .setPositiveButton("Lock now !", new DialogInterface.OnClickListener() {
+                    .setPositiveButton("Call Police !", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface arg0, int arg1) {
                             editorSensor.putBoolean("door_status",false);
                             editorSensor.apply();
