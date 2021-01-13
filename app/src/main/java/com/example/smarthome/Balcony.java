@@ -34,10 +34,12 @@ public class Balcony extends Fragment {
         sharedPreferences = getActivity().getSharedPreferences("balcony", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         sharedPreferencesSensors = getActivity().getSharedPreferences("sensors", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor1 = sharedPreferences.edit();
+        SharedPreferences.Editor editor1 = sharedPreferencesSensors.edit();
 
         if(sharedPreferencesSensors.getString("current_temp","").equals("")){
             temperature_desc.setText("Current Temperature: ");
+            editor1.putString("current_temp","24");
+            editor1.apply();
         } else {
             String temp = sharedPreferencesSensors.getString("current_temp","");
             temperature_desc.setText("Current Temperature: " + temp  + "\u2103");
@@ -45,20 +47,19 @@ public class Balcony extends Fragment {
 
         if(sharedPreferencesSensors.getString("current_humid","").equals("")){
             humidity_desc.setText("Current Humidity: ");
+            editor1.putString("current_humid","20");
+            editor1.apply();
         } else {
             String humid = sharedPreferencesSensors.getString("current_humid","");
             humidity_desc.setText("Current Humidity: " + humid + "%");
         }
 
         if(Integer.parseInt(sharedPreferencesSensors.getString("current_humid",""))>=50
-                && Integer.parseInt(sharedPreferencesSensors.getString("current_temp",""))<=24){
+                && Integer.parseInt(sharedPreferencesSensors.getString("current_temp","0"))<=24){
             rain_protection_switch.setChecked(true);
         } else{
             rain_protection_switch.setChecked(false);
         }
-
-
-
 
         return  rootView;
     }
@@ -70,21 +71,25 @@ public class Balcony extends Fragment {
         sharedPreferences = getActivity().getSharedPreferences("balcony", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         sharedPreferencesSensors = getActivity().getSharedPreferences("sensors", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor1 = sharedPreferences.edit();
+        SharedPreferences.Editor editor1 = sharedPreferencesSensors.edit();
 
         if(sharedPreferencesSensors.getString("current_temp","").equals("")){
             temperature_desc.setText("Current Temperature: ");
+            editor1.putString("current_temp","24");
+            editor1.apply();
         } else {
             String temp = sharedPreferencesSensors.getString("current_temp","");
             temperature_desc.setText("Current Temperature: " + temp  + "\u2103");
         }
         if(sharedPreferencesSensors.getString("current_humid","").equals("")){
             humidity_desc.setText("Current Humidity: ");
+            editor1.putString("current_humid","20");
+            editor1.apply();
         } else {
             String humid = sharedPreferencesSensors.getString("current_humid","");
             humidity_desc.setText("Current Humidity: " + humid + "%");
         }
-        
+
         if(Integer.parseInt(sharedPreferencesSensors.getString("current_humid",""))>=50
                 && Integer.parseInt(sharedPreferencesSensors.getString("current_temp",""))<=24){
             rain_protection_switch.setChecked(true);
