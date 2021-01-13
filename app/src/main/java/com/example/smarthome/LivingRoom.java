@@ -2,6 +2,7 @@ package com.example.smarthome;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.widget.ImageViewCompat;
@@ -10,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -39,7 +41,7 @@ public class LivingRoom extends Fragment {
     private ImageView air_con_icon, smart_light_icon, smart_tv_icon,main_door_icon;
     private RelativeLayout degree, swing, timer, turbo;
     private TextView air_con_title,smart_light_title,smart_tv_title,temperature,main_door_title;
-    private SharedPreferences sharedPreferences;
+    private SharedPreferences sharedPreferences, sharedPreferencesSensor;
     
     private String TAG = LivingRoom.class.getSimpleName();
 
@@ -104,6 +106,7 @@ public class LivingRoom extends Fragment {
         if(sharedPreferences.getBoolean("main_door_check", false)){
             setMainDoorViewActive();
         }
+
         if(sharedPreferences.getString("temperature","").equals("")){
             final Handler handler = new Handler(Looper.getMainLooper());
             handler.postDelayed(new Runnable() {
@@ -183,7 +186,8 @@ public class LivingRoom extends Fragment {
                 }
             }
         });
-
+        sharedPreferencesSensor = getActivity().getSharedPreferences("sensors", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editorSensor = sharedPreferencesSensor.edit();
         main_door.setOnCheckedChangeListener(new SwitchButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(SwitchButton view, boolean isChecked) {
@@ -191,6 +195,19 @@ public class LivingRoom extends Fragment {
                 editor.apply();
                 if (isChecked){
                     setMainDoorViewActive();
+                    new AlertDialog.Builder(getContext())
+                            .setTitle("Intruder Alert!")
+                            .setMessage("The door is opened now. Lock it now!")
+                            .setPositiveButton("Lock now !", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface arg0, int arg1) {
+//                                    editorSensor.putBoolean("door_status",false);
+//                                    editorSensor.apply();
+                                    editor.putBoolean("main_door_check",false);
+                                    editor.apply();
+                                    setMainDoorViewUnActive();
+                                    main_door.setChecked(false);
+                                }
+                            }).create().show();
                 }else{
                     setMainDoorViewUnActive();
                 }
@@ -442,6 +459,24 @@ public class LivingRoom extends Fragment {
                     .setListener(null);
         }else{
             timer.setVisibility(View.GONE);
+        }
+
+        sharedPreferencesSensor = getActivity().getSharedPreferences("sensors", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editorSensor = sharedPreferencesSensor.edit();
+        if(sharedPreferencesSensor.getBoolean("door_status",false)){
+            new AlertDialog.Builder(getContext())
+                    .setTitle("Intruder Alert!")
+                    .setMessage("The door is opened. Lock it now !")
+                    .setPositiveButton("Lock now !", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface arg0, int arg1) {
+                            editorSensor.putBoolean("door_status",false);
+                            editorSensor.apply();
+                            editor.putBoolean("main_door_check",false);
+                            editor.apply();
+                            setMainDoorViewUnActive();
+                            main_door.setChecked(false);
+                        }
+                    }).create().show();
         }
     }
 

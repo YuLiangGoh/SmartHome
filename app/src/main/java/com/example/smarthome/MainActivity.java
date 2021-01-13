@@ -432,17 +432,17 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
         super.onResume();
         sharedPreferences = getSharedPreferences("sensors", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        if(sharedPreferences.getBoolean("door_status",false)){
-            new AlertDialog.Builder(this)
-                    .setTitle("Intruder Alert!")
-                    .setMessage("Door will be locked immediately.")
-                    .setPositiveButton("Lock now !", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface arg0, int arg1) {
-                            editor.putBoolean("door_status",false);
-                            editor.apply();
-                        }
-                    }).create().show();
-        }
+//        if(sharedPreferences.getBoolean("door_status",false)){
+//            new AlertDialog.Builder(this)
+//                    .setTitle("Intruder Alert!")
+//                    .setMessage("Door will be locked immediately.")
+//                    .setPositiveButton("Lock now !", new DialogInterface.OnClickListener() {
+//                        public void onClick(DialogInterface arg0, int arg1) {
+//                            editor.putBoolean("door_status",false);
+//                            editor.apply();
+//                        }
+//                    }).create().show();
+//        }
         if(sharedPreferences.getBoolean("gas_status",false)){
             new AlertDialog.Builder(this)
                     .setTitle("Gas Leaking!")
