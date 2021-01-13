@@ -30,39 +30,38 @@ public class LaundryRoom extends Fragment {
         laundrySwitch = rootView.findViewById(R.id.laundry_switch);
         timer = rootView.findViewById(R.id.timer);
 
-        sharedPreferences = getActivity().getSharedPreferences("Laundry_Room", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
+        //sharedPreferences = getActivity().getSharedPreferences("Laundry_Room", Context.MODE_PRIVATE);
+        //SharedPreferences.Editor editor = sharedPreferences.edit();
 
         laundrySwitch.setOnCheckedChangeListener(new SwitchButton.OnCheckedChangeListener() {
-            @Override
+
+            CountDownTimer CDTimer = new CountDownTimer(3000, 1000){
+
+                @Override
+                public void onTick(long millisUntilFinished) {
+                    double time_left = millisUntilFinished/1000+1;
+                    timer.setText("remaining time: " + time_left);
+                }
+
+                @Override
+                public void onFinish() {
+                    //editor.putBoolean("laundry_ready", laundry_done);
+                    //editor.apply();
+                    timer.setText("laundry is ready!");
+                }
+            };
+
             public void onCheckedChanged(SwitchButton view, boolean isChecked) {
 
                 if(isChecked){
-                    new CountDownTimer(3000, 1000){
-
-                        @Override
-                        public void onTick(long millisUntilFinished) {
-                            if(!laundrySwitch.isChecked()){
-                                return;
-                            }
-                            double time_left = millisUntilFinished/1000+1;
-                            timer.setText("remaining time: " + time_left);
-                        }
-
-                        @Override
-                        public void onFinish() {
-                            timer.setText("laundry is ready!");
-                        }
-                    }.start();
+                    CDTimer.start();
                 }
-
                 else{
+                    CDTimer.cancel();
                     timer.setText("");
                 }
             }
         });
-
-
 
         return  rootView;
     }
