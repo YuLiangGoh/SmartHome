@@ -466,8 +466,5 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
                         }
                     }).create().show();
         }
-
-
-
     }
 }
