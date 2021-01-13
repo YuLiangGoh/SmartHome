@@ -215,14 +215,14 @@ public class Sensors extends AppCompatActivity {
                 if(!s.toString().matches("")){
                     if(Integer.parseInt(s.toString())>=50){
                         editor.putString("current_humid",s.toString());
-                        humidity.setText("Current Temperature: " + s.toString() + "\u2103");
+                        humidity.setText("Current Humidity: " + s.toString() + "%");
                         editor.putString("level_humid","High");
                         humidDesc.setText("High");
                         editor.apply();
                         Log.d(TAG, "afterTextChanged: high");
                     } else if(Integer.parseInt(s.toString()) <50 && Integer.parseInt(s.toString()) >=30) {
                         editor.putString("current_humid",s.toString());
-                        humidity.setText("Current Temperature: " + s.toString() + "\u2103");
+                        humidity.setText("Current Humidity: " + s.toString() + "%");
                         editor.putString("level_humid","Average");
                         humidDesc.setText("Average");
                         editor.apply();
@@ -230,7 +230,7 @@ public class Sensors extends AppCompatActivity {
                     }
                     else if( Integer.parseInt(s.toString()) <30){
                         editor.putString("current_humid",s.toString());
-                        humidity.setText("Current Temperature: " + s.toString() + "\u2103");
+                        humidity.setText("Current Humidity: " + s.toString() + "%");
                         editor.putString("level_humid","Low");
                         humidDesc.setText("Low");
                         editor.apply();
