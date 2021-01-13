@@ -194,7 +194,7 @@ public class Sensors extends AppCompatActivity {
         }
         return super.dispatchTouchEvent( event );
     }
-    
+
 
 //    @Override
 //    public void onBackPressed() {
