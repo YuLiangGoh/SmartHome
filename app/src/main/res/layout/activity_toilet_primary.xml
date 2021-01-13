@@ -75,7 +75,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_centerVertical="true"
-                    android:background="@drawable/energy_saving_bulb_icon" />
+                    android:background="@drawable/vent_icon" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -110,7 +110,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_centerVertical="true"
-                    android:background="@drawable/energy_saving_bulb_icon" />
+                    android:background="@drawable/heater_icon" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -207,7 +207,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_centerVertical="true"
-                    android:background="@drawable/energy_saving_bulb_icon" />
+                    android:background="@drawable/vent_icon" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -243,7 +243,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_centerVertical="true"
-                    android:background="@drawable/energy_saving_bulb_icon" />
+                    android:background="@drawable/heater_icon" />
 
                 <TextView
                     android:layout_width="match_parent"
