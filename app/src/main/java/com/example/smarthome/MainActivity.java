@@ -50,7 +50,7 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
     private SharedPreferences sharedPreferences;
 
 
-    private int NUM_PAGES = 11;
+    private int NUM_PAGES = 10;
     private String TAG = MainActivity.class.getSimpleName();
 
     @Override
@@ -71,7 +71,6 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
         toilet_primary = findViewById(R.id.main_toilet_primary);
         toilet_secondary = findViewById(R.id.main_toilet_secondary);
         store_room_primary = findViewById(R.id.main_store_room_primary);
-        store_room_secondary = findViewById(R.id.main_store_room_secondary);
         scrollView = findViewById(R.id.main_scroll_view);
         horizontalScrollView = findViewById(R.id.main_horizontal_scroll_view);
         horizontalScrollView.setSmoothScrollingEnabled(true);
@@ -87,7 +86,6 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
         view7 = findViewById(R.id.main_toilet_primary_view);
         view8 = findViewById(R.id.main_toilet_secondary_view);
         view9 = findViewById(R.id.main_store_room_primary_view);
-        view10 = findViewById(R.id.main_store_room_secondary_view);
         menu = findViewById(R.id.main_menu);
         drawer = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_item);
@@ -207,14 +205,6 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
                         store_room_primary.setTypeface(Typeface.DEFAULT_BOLD);
                         horizontalScrollView.smoothScrollTo((int) linearLayout.getChildAt(9).getX(),0);
                         view9.getLayoutParams().width = store_room_primary.getWidth();
-                        break;
-                    case 10:
-                        clearTextStyle();
-                        clearLineView();
-                        store_room_secondary.setTextColor(getResources().getColor(R.color.primaryColor, getApplicationContext().getTheme()));
-                        store_room_secondary.setTypeface(Typeface.DEFAULT_BOLD);
-                        horizontalScrollView.smoothScrollTo((int) linearLayout.getChildAt(10).getX(),0);
-                        view10.getLayoutParams().width = store_room_secondary.getWidth();
                         break;
                     default:
                         break;
@@ -343,18 +333,6 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
                 viewPager.setCurrentItem(9,true);
             }
         });
-
-        store_room_secondary.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clearTextStyle();
-                clearLineView();
-                store_room_secondary.setTextColor(getResources().getColor(R.color.primaryColor, getApplicationContext().getTheme()));
-                store_room_secondary.setTypeface(Typeface.DEFAULT_BOLD);
-                viewPager.setCurrentItem(10,true);
-            }
-        });
-
     }
 
     @Override
@@ -413,8 +391,6 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
                     return new ToiletSecondary();
                 case 9:
                     return new StoreRoomPrimary();
-                case 10:
-                    return new StoreRoomSecondary();
                 default:
                     return new LivingRoom();
             }
@@ -447,8 +423,6 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
         toilet_secondary.setTypeface(Typeface.DEFAULT);
         store_room_primary.setTextColor(getResources().getColor(R.color.grey, this.getTheme()));
         store_room_primary.setTypeface(Typeface.DEFAULT);
-        store_room_secondary.setTextColor(getResources().getColor(R.color.grey, this.getTheme()));
-        store_room_secondary.setTypeface(Typeface.DEFAULT);
     }
 
     private void clearLineView(){
@@ -462,7 +436,6 @@ public class MainActivity extends FragmentActivity implements NavigationView.OnN
         view7.getLayoutParams().width = 0;
         view8.getLayoutParams().width = 0;
         view9.getLayoutParams().width = 0;
-        view10.getLayoutParams().width = 0;
     }
 
     @Override
