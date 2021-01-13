@@ -36,16 +36,29 @@
                     android:padding="8dp">
 
                     <ImageView
-                        android:id="@+id/living_room_air_con_icon"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:id="@+id/stove_icon"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
                         android:layout_centerVertical="true"
                         android:layout_gravity="center"
-                        android:background="@drawable/air_cond_icon"
+                        android:background="@drawable/air_cond_icon" />
+
+                    <TextView
+                        android:id="@+id/stove_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/stove_icon"
+                        android:layout_marginLeft="4dp"
+                        android:layout_toLeftOf="@id/stove_switch"
+                        android:layout_centerVertical="true"
+                        android:text="Smart Stove"
+                        android:textColor="@color/primaryColor"
+                        android:textStyle="bold"
+                        android:textAlignment="center"
                         />
 
                     <com.suke.widget.SwitchButton
-                        android:id="@+id/living_room_air_con_switch"
+                        android:id="@+id/stove_switch"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
@@ -53,129 +66,74 @@
 
                 </RelativeLayout>
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:padding="8dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/kitchen_vent_icon"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/tv_icon"
+                        />
 
                     <TextView
-                        android:id="@+id/living_room_air_con_title"
+                        android:id="@+id/kitchen_vent_title"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="Daikin Air Conditioner"
-                        android:textSize="14sp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/kitchen_vent_icon"
+                        android:layout_toLeftOf="@id/kitchen_vent_switch"
+                        android:gravity="center"
+                        android:text="Vent"
                         android:textColor="@color/primaryColor"
                         android:textStyle="bold"
-                        android:textAlignment="center"
-                        android:layout_marginTop="12dp"
+                        android:textSize="15sp"/>
+
+                    <com.suke.widget.SwitchButton
+                        android:id="@+id/kitchen_vent_switch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        app:sb_checked_color="@color/primaryColor" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:id="@+id/kitchen_smart_light_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/energy_saving_bulb_icon"
                         />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/living_room_outlinedButton_setting"
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:id="@+id/living_room_smart_light_title"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Setting"
-                        android:textSize="12sp"
+                        android:layout_toRightOf="@id/kitchen_smart_light_icon"
+                        android:layout_toLeftOf="@id/kitchen_smart_light_switch"
+                        android:layout_marginLeft="4dp"
+                        android:layout_centerVertical="true"
+                        android:gravity="center"
+                        android:text="Smart Light"
                         android:textColor="@color/primaryColor"
-                        app:icon="@drawable/setting_icon"
-                        app:iconSize="16dp"
-                        app:iconTint="@color/primaryColor"
-                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                        android:layout_marginTop="12dp"
-                        app:rippleColor="@color/grey"
-                        android:layout_marginStart="4dp"
-                        android:layout_marginEnd="4dp"
-                        />
+                        android:textStyle="bold" />
 
-                    <RelativeLayout
-                        android:id="@+id/living_room_temperature_title"
-                        android:layout_width="match_parent"
+                    <com.suke.widget.SwitchButton
+                        android:id="@+id/kitchen_smart_light_switch"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="24dp">
-
-                        <TextView
-                            android:id="@+id/living_room_temperature"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_toStartOf="@+id/main_thermometer_icon"
-                            android:text="27 \u2103"
-                            android:textStyle="bold"
-                            android:textColor="@color/black"
-                            android:textSize="12sp"
-                            android:layout_centerVertical="true"
-                            android:layout_marginStart="10dp"/>
-
-                        <ImageView
-                            android:id="@+id/main_thermometer_icon"
-                            android:layout_width="28dp"
-                            android:layout_height="28dp"
-                            android:background="@drawable/thermometer_icon"
-                            android:layout_alignParentEnd="true"
-                            android:layout_marginEnd="10dp"
-                            android:backgroundTint="@color/snowblue"
-                            />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:id="@+id/living_room_swing_title"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="16dp">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_toStartOf="@+id/main_swing_icon"
-                            android:text="Swing"
-                            android:textStyle="bold"
-                            android:textColor="@color/black"
-                            android:textSize="12sp"
-                            android:layout_centerVertical="true"
-                            android:layout_marginStart="10dp"/>
-
-                        <ImageView
-                            android:id="@+id/main_swing_icon"
-                            android:layout_width="28dp"
-                            android:layout_height="28dp"
-                            android:background="@drawable/oscillation_icon"
-                            android:layout_alignParentEnd="true"
-                            android:layout_marginEnd="10dp"
-                            android:backgroundTint="@color/lightorange"
-                            />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:id="@+id/living_room_timer_title"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="16dp">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_toStartOf="@+id/main_timer_icon"
-                            android:text="Timer"
-                            android:textStyle="bold"
-                            android:textColor="@color/black"
-                            android:textSize="12sp"
-                            android:layout_centerVertical="true"
-                            android:layout_marginStart="10dp"/>
-
-                        <ImageView
-                            android:id="@+id/main_timer_icon"
-                            android:layout_width="28dp"
-                            android:layout_height="28dp"
-                            android:background="@drawable/timer_icon"
-                            android:layout_alignParentEnd="true"
-                            android:layout_marginEnd="10dp"
-                            android:backgroundTint="@color/lightgreen"
-                            />
-                    </RelativeLayout>
-
-                </LinearLayout>
+                        android:layout_alignParentEnd="true"
+                        app:sb_checked_color="@color/primaryColor" />
+                </RelativeLayout>
 
             </LinearLayout>
 
@@ -183,9 +141,6 @@
 
 
     </LinearLayout>
-
-
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -198,85 +153,42 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardElevation="0dp"
-            app:cardCornerRadius="8dp"
-            android:id="@+id/light_card">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:padding="8dp"
-                >
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp">
-
-                    <ImageView
-                        android:id="@+id/living_room_smart_light_icon"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_centerVertical="true"
-                        android:background="@drawable/energy_saving_bulb_icon"
-                        />
-
-                    <com.suke.widget.SwitchButton
-                        android:id="@+id/living_room_smart_light_switch"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        app:sb_checked_color="@color/primaryColor" />
-                </RelativeLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:padding="10dp">
-
-                    <TextView
-                        android:id="@+id/living_room_smart_light_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Smart Light"
-                        android:textColor="@color/primaryColor"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            app:cardElevation="0dp"
             app:cardCornerRadius="8dp">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="197dp"
+                android:layout_height="194dp"
                 android:orientation="vertical"
                 android:padding="8dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="8dp"
-                    android:orientation="horizontal">
+                    android:padding="6dp">
 
                     <ImageView
-                        android:id="@+id/living_room_smart_tv_icon"
+                        android:id="@+id/oven_icon"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/tv_icon"
-                        />
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:background="@drawable/air_cond_icon" />
+
+                    <TextView
+                        android:id="@+id/oven_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@id/oven_switch"
+                        android:layout_toRightOf="@id/oven_icon"
+                        android:text="Smart \nOven"
+                        android:textAlignment="center"
+                        android:textColor="@color/primaryColor"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
 
                     <com.suke.widget.SwitchButton
-                        android:id="@+id/living_room_smart_tv_switch"
+                        android:id="@+id/oven_switch"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
@@ -285,19 +197,86 @@
                 </RelativeLayout>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:padding="5dp">
+                    android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/living_room_smart_tv_title"
-                        android:layout_width="wrap_content"
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/living_room_outlinedButton_setting"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Smart TV"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginEnd="4dp"
+                        android:text="Setting"
                         android:textColor="@color/primaryColor"
-                        android:textStyle="bold"/>
+                        android:textSize="12sp"
+                        app:icon="@drawable/setting_icon"
+                        app:iconSize="16dp"
+                        app:iconTint="@color/primaryColor"
+                        app:rippleColor="@color/grey" />
+
+                    <RelativeLayout
+                        android:id="@+id/living_room_temperature_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/living_room_temperature"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="10dp"
+                            android:layout_toStartOf="@+id/main_thermometer_icon"
+                            android:text="27 \u2103"
+                            android:textColor="@color/black"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/main_thermometer_icon"
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="10dp"
+                            android:background="@drawable/thermometer_icon"
+                            android:backgroundTint="@color/snowblue" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/living_room_timer_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="10dp"
+                            android:layout_toStartOf="@+id/oven_timer_icon"
+                            android:text="Timer"
+                            android:textColor="@color/black"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/oven_timer_icon"
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="10dp"
+                            android:background="@drawable/timer_icon"
+                            android:backgroundTint="@color/lightgreen" />
+                    </RelativeLayout>
+
                 </LinearLayout>
+
 
             </LinearLayout>
 
