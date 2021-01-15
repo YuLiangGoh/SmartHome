@@ -5,8 +5,7 @@ A group project that given by university lecturer to conduct maintenance for the
 
 ## Objective 
 
-The objective of this project assignment is to gain experience with the analysis of software systems and to experience of integrating the concept into a practical project. Please make sure to manage your project in a way that will facilitate the reuse of the artefacts and produce, and of the knowledge that acquired.
-
+The objective of this project assignment is to gain experience with the analysis of software systems and to experience of integrating the concept into a practical project. 
 
 ## Prerequisites
 
