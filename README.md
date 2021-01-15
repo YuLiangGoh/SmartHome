@@ -1,4 +1,5 @@
 # SmartHome
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/mit-license.php)
 
 A group project that given by university lecturer to conduct maintenance for the existing Smart Home app that made by university senior.
 
