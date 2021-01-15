@@ -8,17 +8,17 @@ A group project that given by university lecturer to conduct maintenance for the
 The objective of this project assignment is to gain experience with the analysis of software systems and to experience of integrating the concept into a practical project. Please make sure to manage your project in a way that will facilitate the reuse of the artefacts and produce, and of the knowledge that acquired.
 
 
-### Prerequisites
+## Prerequisites
 
 Install latest version of Android Studio
 * [Android Studio](https://developer.android.com/studio/install) 
 * SDK version - minimum : 27 , target 30
 
-### Download
+## Download
 Use Github Desktop to clone or manually download the zip file into local.
 
 
-### Previous Smart Home UI 
+## Previous Smart Home UI 
 
 
 ## Deployment
