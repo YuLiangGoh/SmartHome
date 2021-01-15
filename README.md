@@ -11,18 +11,21 @@ The objective of this project assignment is to gain experience with the analysis
 
 Install latest version of Android Studio
 * [Android Studio](https://developer.android.com/studio/install) 
-* SDK version - minimum : 27 , target 30
+* SDK version - minimumSDK : 27 , targetSDK : 30
 
 ## Download
 Use Github Desktop to clone or manually download the zip file into local.
 
 
-## Previous Smart Home UI 
+## Redesigned Smart Home User Interface 
 
+__*Animation Showcase*__ 
 
-## Deployment
+<img src="https://github.com/YuLiangGoh/SmartHome/blob/Demo/assets/on_off_animation.gif" width="250"/>  <img src="https://github.com/YuLiangGoh/SmartHome/blob/Demo/assets/sliding_animation.gif" width="250"/>  <img src="https://github.com/YuLiangGoh/SmartHome/blob/Demo/assets/aircond_animation.gif" width="250"/>
 
-Add additional notes about how to deploy this on a live system
+__*Some UI Showcase*__ 
+
+<img src="https://github.com/YuLiangGoh/SmartHome/blob/Demo/assets/homepage_livingroom.jpg" width="250"/>  <img src="https://github.com/YuLiangGoh/SmartHome/blob/Demo/assets/sensors.jpg" width="250"/>  <img src="https://github.com/YuLiangGoh/SmartHome/blob/Demo/assets/timer.jpg" width="250"/>  <img src="https://github.com/YuLiangGoh/SmartHome/blob/Demo/assets/laundry.jpg" width="250"/> <img src="https://github.com/YuLiangGoh/SmartHome/blob/Demo/assets/alert.jpg" width="250"/> <img src="https://github.com/YuLiangGoh/SmartHome/blob/Demo/assets/rainprotection.jpg" width="250"/> 
 
 ## Built With
 
